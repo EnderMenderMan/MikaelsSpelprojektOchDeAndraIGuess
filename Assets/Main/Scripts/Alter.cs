@@ -24,6 +24,7 @@ public class Alter : MonoBehaviour, IInteract
     {
         if (equippedRune == null)
             return;
+        equippedRune.IsInteractDisabled = false;
         equippedRune.transform.position = transform.position + kickOffset;
         equippedRune.alter = null;
         equippedRune = null;
