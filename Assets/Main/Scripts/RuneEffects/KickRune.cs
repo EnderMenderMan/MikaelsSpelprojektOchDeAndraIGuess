@@ -42,9 +42,9 @@ public class KickRune : Rune
                     continue;
                 if (alters[i].equippedRune == null)
                     continue;
-                if (kickFilterType == FilterType.Exclusive && kickFilter.Contains(alters[i].equippedRune.ValueID) == false)
+                if (kickFilterType == FilterType.Exclusive && kickFilter.Contains(alters[i].equippedRune.ValueID) == true)
                     continue;
-                if (kickFilterType == FilterType.Inclusive && kickFilter.Contains(alters[i].equippedRune.ValueID) == true)
+                if (kickFilterType == FilterType.Inclusive && kickFilter.Contains(alters[i].equippedRune.ValueID) == false)
                     continue;
                 alters[i].KickItem();
             }
@@ -59,9 +59,9 @@ public class KickRune : Rune
                 continue;
             if (alters[tryIndex].equippedRune == null)
                 continue;
-            if (kickFilterType == FilterType.Exclusive && kickFilter.Contains(alters[tryIndex].equippedRune.ValueID) == false)
+            if (kickFilterType == FilterType.Exclusive && kickFilter.Contains(alters[tryIndex].equippedRune.ValueID) == true)
                 continue;
-            if (kickFilterType == FilterType.Inclusive && kickFilter.Contains(alters[tryIndex].equippedRune.ValueID) == true)
+            if (kickFilterType == FilterType.Inclusive && kickFilter.Contains(alters[tryIndex].equippedRune.ValueID) == false)
                 continue;
             alters[tryIndex].KickItem();
         }
