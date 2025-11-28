@@ -1,17 +1,21 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System.Linq;
 
 public class SeeInvis : Rune
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] UnityEvent onPickup;
+    [SerializeField] UnityEvent onDrop;
+    public override void OnInteract()
     {
-        
+        base.OnInteract();
+        onPickup.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void DropRunes()
     {
-        
+        base.DropRunes();
+        Debug.Log("SEEthis");
+        onDrop.Invoke();
     }
 }

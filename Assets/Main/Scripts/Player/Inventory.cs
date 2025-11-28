@@ -23,6 +23,7 @@ public class Inventory : MonoBehaviour
         if (heldRune == null)
             return false;
         return DropRuneAtPosition(heldRune.transform.position);
+       
     }
     public bool DropRuneAtPosition(Vector2 position)
     {
@@ -35,6 +36,7 @@ public class Inventory : MonoBehaviour
         
         heldRune.IsInteractDisabled = false;
         heldRune.transform.position = WorldData.Instance != null ? WorldData.Instance.WorldGrid.WorldToCell(position) : position;
+        heldRune.DropRunes();
         heldRune = null;
         return true;
     }

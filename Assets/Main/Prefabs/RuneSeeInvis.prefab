@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8034950262366957445}
-  - component: {fileID: 3590525631695909361}
   - component: {fileID: 7312973427731453701}
+  - component: {fileID: 8794991942181138023}
   m_Layer: 6
   m_Name: RuneSeeInvis
   m_TagString: Interactable
@@ -34,28 +34,6 @@ Transform:
   - {fileID: 6825385399178635450}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3590525631695909361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3216949541595691877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68816762cf6da3c46851593c392f523f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alterFilter:
-    alterFilterType: 2
-    alterFillter: []
-    clusterFilterType: 0
-    clusterFilter: []
-  tags:
-    tags: []
-  kickFilterType: 0
-  kickFilter: []
-  kickItemIndexOffsets: 
 --- !u!61 &7312973427731453701
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -102,6 +80,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7821264, y: 1.1537933}
   m_EdgeRadius: 0
+--- !u!114 &8794991942181138023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3216949541595691877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b99c65c30accd246a4f48f424f1d93b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alterFilter:
+    alterFilterType: 0
+    alterFillter: []
+    clusterFilterType: 0
+    clusterFilter: []
+  tags:
+    tags: []
+  onPickup:
+    m_PersistentCalls:
+      m_Calls: []
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8619522821636609946
 GameObject:
   m_ObjectHideFlags: 0

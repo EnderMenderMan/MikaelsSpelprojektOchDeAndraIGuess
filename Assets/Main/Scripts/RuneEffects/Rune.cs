@@ -33,6 +33,10 @@ public class Rune : MonoBehaviour, IInteract
         return true;
     }
 
+    public virtual void DropRunes()
+    {
+        
+    }
     protected virtual void Awake()
     {
         tags.Init();
