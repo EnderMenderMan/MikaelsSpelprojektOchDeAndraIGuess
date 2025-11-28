@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class TransformRune : Rune
 {
-    [SerializeField] private FilterType transformFilterType;
-    [SerializeField] private string[] transformFilter;
-    [SerializeField] private int[] transformItemIndexOffsets;
+    Rune selectedChild;
+    [SerializeField] Rune[] runes;
+    int selectedRuneIndex;
 
-    public override void TriggerRunePlacement(int itemIndex, Alter[] alters)
+    public void SwapSelectedRune(Alter currentAlter = null)
     {
-        if (transformItemIndexOffsets.Length == 0)
-        {
-            for (int i = 0; i < alters.Length; i++)
-            {
-                if (transformFilterType == FilterType.Exclusive &&
-                    alters[i].equippedRune.tags.Contains(transformFilter) == true)
-                    continue;
-                if (transformFilterType == FilterType.Inclusive &&
-                    alters[i].equippedRune.tags.Contains(transformFilter) == false)
-                    continue;
-                Debug.Log("Transformrune");
-                
-            }
-            
-        }
+        selectedRuneIndex++;
+        selectedRuneIndex %= runes.Length;
+        selectedChild.gameObject.SetActive(false);
+        if (currentAlter != null)
+            SwapAlterPlace(currentAlter);
+        selectedChild = runes[selectedRuneIndex];
     }
+
+    void SwapAlterPlace(Alter alter)
+    {
+        alter.equippedRune = runes[selectedRuneIndex];
+    }
+
+    public override void TriggerRunePlacement(int itemIndex, Alter[] alters) => selectedChild.TriggerRunePlacement(itemIndex, alters);
+    public override bool TryBePlaced(int alterIndex, Alter[] alters, AlterCluster cluster) => selectedChild.TryBePlaced(alterIndex, alters, cluster);
 }

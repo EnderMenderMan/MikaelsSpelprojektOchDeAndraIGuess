@@ -3,7 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 
-public abstract class Rune : MonoBehaviour, IInteract
+public class Rune : MonoBehaviour, IInteract
 {
     [SerializeField] protected AlterFilter alterFilter;
     [NonSerialized][CanBeNull] public Alter alter;
