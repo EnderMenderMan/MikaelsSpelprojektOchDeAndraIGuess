@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TransformRune : Rune
 {
-[SerializedField] private FilterType TranformFilterType;
+[SerializeField] private FilterType TranformFilterType;
 
      public override void TriggerRunePlacement(int itemIndex, Alter[] alters) 
 {
