@@ -4,18 +4,20 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory PlayerInventory { get; private set; }
     [field: SerializeField] public Rune heldRune { get; private set; }
-    public void PickUpRune(Rune rune)
+    public bool TryPickUpRune(Rune rune)
     {
         if (heldRune != null)
         {
             rune.gameObject.SetActive(false);
             if (DropRuneAtPosition(rune.transform.position) == false)
-            { rune.gameObject.SetActive(true); return; }
+            { rune.gameObject.SetActive(true); return false; }
             rune.gameObject.SetActive(true);
         }
 
         heldRune = rune;
         heldRune.IsInteractDisabled = true;
+        heldRune.OnPickUp();
+        return true;
     }
 
     public bool DropRune()
@@ -36,7 +38,7 @@ public class Inventory : MonoBehaviour
         
         heldRune.IsInteractDisabled = false;
         heldRune.transform.position = WorldData.Instance != null ? WorldData.Instance.WorldGrid.WorldToCell(position) : position;
-        heldRune.DropRunes();
+        heldRune.OnDropped();
         heldRune = null;
         return true;
     }

@@ -11,7 +11,7 @@ public class Alter : MonoBehaviour, IInteract
     private int clusterIndex;
     [SerializeField] Vector3 kickOffset;
     [CanBeNull] public Rune equippedRune;
-    [SerializeField] UnityEvent OnRunePlaced;
+    [CanBeNull] public AlterEvents Events { get; private set; }
 
     public bool IsInteractDisabled { get; set; }
 
@@ -40,7 +40,7 @@ public class Alter : MonoBehaviour, IInteract
         rune.alter = this;
         rune.transform.position = transform.position;
         alterCluster.TriggerItemPlacement(clusterIndex);
-        OnRunePlaced.Invoke();
+        Events?.onRunePlaced.Invoke();
     }
     void DropRune()
     {
@@ -50,6 +50,7 @@ public class Alter : MonoBehaviour, IInteract
     void Awake()
     {
         tags.Init();
+        Events = GetComponent<AlterEvents>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -63,13 +64,20 @@ public class Alter : MonoBehaviour, IInteract
 
     }
 
+    bool PlayerTryPickUp(Rune rune)
+    {
+        if (Inventory.PlayerInventory.TryPickUpRune(rune) == false)
+            return false;
+        rune.OnAlterPickUp();
+        return true;
+    }
     public void OnInteract()
     {
         if (Inventory.PlayerInventory.heldRune && equippedRune)
         {
             Rune heldRune = Inventory.PlayerInventory.heldRune;
             Inventory.PlayerInventory.ForceDropRune();
-            Inventory.PlayerInventory.PickUpRune(equippedRune);
+            PlayerTryPickUp(equippedRune);
             KickItem();
             PlaceItem(heldRune);
             return;
@@ -79,7 +87,7 @@ public class Alter : MonoBehaviour, IInteract
         {
             Rune rune = equippedRune;
             KickItem();
-            Inventory.PlayerInventory.PickUpRune(rune);
+            PlayerTryPickUp(rune);
             return;
         }
 

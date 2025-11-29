@@ -12,9 +12,9 @@ public class SeeInvis : Rune
         onPickup.Invoke();
     }
 
-    public override void DropRunes()
+    public override void OnDropped()
     {
-        base.DropRunes();
+        base.OnDropped();
         Debug.Log("SEEthis");
         onDrop.Invoke();
     }
