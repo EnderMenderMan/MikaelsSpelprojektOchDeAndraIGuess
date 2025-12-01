@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -55,14 +56,13 @@ public struct AlterFilter
                 if (alters[i].equippedRune == null)
                     continue;
                 foundRunes = true;
-                if (runeFilterType == FilterType.Exclusive && alters[i].equippedRune.tags.Contains(runesFilter) == true)
+                if (runeFilterType == FilterType.Exclusive && alters[i].equippedRune.tags.Contains(runesFilter) == false)
                     continue;
-                if (runeFilterType == FilterType.Inclusive && alters[i].equippedRune.tags.Contains(runesFilter) == false)
+                if (runeFilterType == FilterType.Inclusive && alters[i].equippedRune.tags.Contains(runesFilter) == true)
                     continue;
                 return false;
             }
         }
-
         foreach (var indexOffset in alterIndexOffsets)
         {
             int tryIndex = alterIndex + indexOffset;
@@ -71,13 +71,13 @@ public struct AlterFilter
             if (alters[tryIndex].equippedRune == null)
                 continue;
             foundRunes = true;
-            if (runeFilterType == FilterType.Exclusive && alters[tryIndex].equippedRune.tags.Contains(runesFilter) == true)
+            if (runeFilterType == FilterType.Exclusive && alters[tryIndex].equippedRune.tags.Contains(runesFilter) == false)
                 continue;
-            if (runeFilterType == FilterType.Inclusive && alters[tryIndex].equippedRune.tags.Contains(runesFilter) == false)
+            if (runeFilterType == FilterType.Inclusive && alters[tryIndex].equippedRune.tags.Contains(runesFilter) == true)
                 continue;
             return false;
         }
-
+        
         if (foundRunes == false && runeFilterType == FilterType.Inclusive)
             return false;
         return true;

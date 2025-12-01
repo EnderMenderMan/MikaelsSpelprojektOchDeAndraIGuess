@@ -1257,6 +1257,22 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: getTagsFromTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: placeOnAlterFilter.runeFilterType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: placeOnAlterFilter.runesFilter.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'placeOnAlterFilter.runesFilter.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6732678714265897389, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6
@@ -2849,6 +2865,18 @@ PrefabInstance:
     - target: {fileID: 3742166707969358529, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: placeOnAlterFilter.runeFilterType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: placeOnAlterFilter.runesFilter.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499256919273103577, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'placeOnAlterFilter.runesFilter.Array.data[0]'
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5694795520038736704, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       propertyPath: m_IsActive
