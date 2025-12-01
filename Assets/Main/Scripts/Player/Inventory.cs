@@ -25,20 +25,22 @@ public class Inventory : MonoBehaviour
         if (heldRune == null)
             return false;
         return DropRuneAtPosition(heldRune.transform.position);
-       
+
     }
     public bool DropRuneAtPosition(Vector2 position)
     {
         if (heldRune == null)
             return false;
+
+        heldRune.OnDropped();
         heldRune.gameObject.SetActive(false);
         if (WorldData.Instance != null && WorldData.Instance.IsGridSpaceFree(position) == false)
         { heldRune.gameObject.SetActive(true); return false; }
         heldRune.gameObject.SetActive(true);
-        
+
         heldRune.IsInteractDisabled = false;
-        heldRune.transform.position = WorldData.Instance != null ? WorldData.Instance.WorldGrid.WorldToCell(position) : position;
-        heldRune.OnDropped();
+        heldRune.transform.position = WorldData.Instance != null ? WorldData.Instance.WorldGrid.WorldToCell(position) + WorldData.Instance.WorldGrid.cellSize / 2 : position;
+        heldRune.AfterDropped();
         heldRune = null;
         return true;
     }

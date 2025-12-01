@@ -26,9 +26,11 @@ public class Alter : MonoBehaviour, IInteract
     {
         if (equippedRune == null)
             return;
+        equippedRune.OnKicked();
         equippedRune.IsInteractDisabled = false;
         equippedRune.transform.position = transform.position + kickOffset;
         equippedRune.alter = null;
+        equippedRune.AfterKicked();
         equippedRune = null;
     }
 
@@ -36,6 +38,8 @@ public class Alter : MonoBehaviour, IInteract
     {
         if (alterCluster.CanItemBePlaced(rune, clusterIndex) == false)
             return;
+
+        rune.OnAlterPlace();
         KickItem();
         this.equippedRune = rune;
         rune.IsInteractDisabled = true;
@@ -43,7 +47,7 @@ public class Alter : MonoBehaviour, IInteract
         rune.transform.position = transform.position;
         alterCluster.TriggerItemPlacement(clusterIndex);
         Events?.onRunePlaced.Invoke();
-        rune.OnAlterPlace();
+        rune.AfterAlterPlace();
     }
     void DropRune()
     {
