@@ -185,6 +185,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8368859990788354250, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7854927406428675829, guid: 556191d64274dac4aa9907ef3fdf44b7, type: 3}
+    - target: {fileID: 8368859990788354250, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
@@ -207,6 +211,18 @@ PrefabInstance:
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'kickFilter.Array.data[0]'
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickItemIndexOffsets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[1]'
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -795,6 +811,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8368859990788354250, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7854927406428675829, guid: 556191d64274dac4aa9907ef3fdf44b7, type: 3}
+    - target: {fileID: 8368859990788354250, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
@@ -817,6 +837,18 @@ PrefabInstance:
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'kickFilter.Array.data[0]'
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickItemIndexOffsets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[1]'
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -986,6 +1018,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8368859990788354250, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7854927406428675829, guid: 556191d64274dac4aa9907ef3fdf44b7, type: 3}
+    - target: {fileID: 8368859990788354250, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
@@ -1008,6 +1044,18 @@ PrefabInstance:
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'kickFilter.Array.data[0]'
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickItemIndexOffsets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[1]'
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1180,10 +1228,46 @@ PrefabInstance:
       propertyPath: onAlterPlaced.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickFilterType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickFilter.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'tags.tags.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickFilter.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickItemIndexOffsets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[1]'
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 976768926278123069, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1114911352934372775, guid: 5fbb3cfdd11e64b4aad6ec2f83be84f6, type: 3}
     - target: {fileID: 976768926278123069, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1073868979172214709, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7854927406428675829, guid: 556191d64274dac4aa9907ef3fdf44b7, type: 3}
     - target: {fileID: 1073868979172214709, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -1192,6 +1276,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: TransformRune1
       objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickFilterType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickFilter.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'tags.tags.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickFilter.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickItemIndexOffsets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[1]'
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742166707969358529, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7854927406428675829, guid: 556191d64274dac4aa9907ef3fdf44b7, type: 3}
     - target: {fileID: 3742166707969358529, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -2666,10 +2782,46 @@ PrefabInstance:
       propertyPath: onAlterPlaced.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickFilterType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickFilter.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'tags.tags.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickFilter.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickItemIndexOffsets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879769600971953282, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[1]'
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 976768926278123069, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1114911352934372775, guid: 5fbb3cfdd11e64b4aad6ec2f83be84f6, type: 3}
     - target: {fileID: 976768926278123069, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1073868979172214709, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7854927406428675829, guid: 556191d64274dac4aa9907ef3fdf44b7, type: 3}
     - target: {fileID: 1073868979172214709, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -2678,6 +2830,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: TransformRune
       objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickFilterType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickFilter.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'tags.tags.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickFilter.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: kickItemIndexOffsets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547832809790876150, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: 'kickItemIndexOffsets.Array.data[1]'
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742166707969358529, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7854927406428675829, guid: 556191d64274dac4aa9907ef3fdf44b7, type: 3}
     - target: {fileID: 3742166707969358529, guid: cc47cbcb8b2b4b844ab951bd618b141a, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -3221,6 +3405,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 286955081}
     m_Modifications:
+    - target: {fileID: 407470584146978970, guid: 723117ad1a9f13840b0df65b0bcefd74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4293228671476552634, guid: ac3b6286b7adc42408e09e147c338581, type: 3}
     - target: {fileID: 407470584146978970, guid: 723117ad1a9f13840b0df65b0bcefd74, type: 3}
       propertyPath: m_Enabled
       value: 0
