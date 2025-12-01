@@ -6,9 +6,10 @@ using UnityEngine.Events;
 public class AlterCluster : MonoBehaviour
 {
     [field: SerializeField] public Tags tags;
-    [SerializeField] UnityEvent onCompletion;
+    public UnityEvent onCompletion;
     public Alter[] alters { get; private set; }
 
+    public bool isClusterCompleted { get; private set; }
     bool isClusterDisabled;
     public void DisableCluster()
     {
@@ -35,7 +36,13 @@ public class AlterCluster : MonoBehaviour
             break;
         }
         if (hasSpace == false)
+        {
             onCompletion.Invoke();
+            isClusterCompleted = true;
+
+        }
+        else
+            isClusterCompleted = false;
     }
     public bool CanItemBePlaced(Rune rune, int alterIndex)
     {
