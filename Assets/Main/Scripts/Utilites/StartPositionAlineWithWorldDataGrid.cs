@@ -7,7 +7,7 @@ public class StartPositionAlineWithWorldDataGrid : MonoBehaviour
     {
         if (WorldData.Instance == null)
             return;
-        transform.position = WorldData.Instance.WorldGrid.WorldToCell(transform.position);
+        transform.position = WorldData.Instance.WorldGrid.WorldToCell(transform.position) + WorldData.Instance.WorldGrid.cellSize / 2;
         Destroy(this);
     }
 }
