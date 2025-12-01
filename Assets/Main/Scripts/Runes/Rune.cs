@@ -64,6 +64,7 @@ public class Rune : MonoBehaviour, IInteract
     {
         tags.Init();
         Events = GetComponent<RuneEvents>();
+        AfterEvents = GetComponent<RuneAfterEvents>();
     }
 
     public virtual void OnInteract()
