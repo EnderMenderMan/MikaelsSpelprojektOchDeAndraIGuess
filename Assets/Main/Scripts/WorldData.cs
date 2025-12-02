@@ -7,8 +7,12 @@ public class WorldData : MonoBehaviour
     [SerializeField] private LayerMask gridCheckLayerMask;
     public static WorldData Instance { get; private set; }
     [field: SerializeField] public Grid WorldGrid { get; private set; }
-    
+
     private void Awake()
+    {
+    }
+
+    void OnEnable()
     {
         Instance = this;
     }

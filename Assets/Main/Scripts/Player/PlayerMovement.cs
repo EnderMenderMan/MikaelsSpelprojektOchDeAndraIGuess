@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerInteract.InputActions.Player.Move.performed += context =>
+        PlayerInteract.Instance.InputActions.Player.Move.performed += context =>
         {
             animator.SetBool("IsMoving", true);
             dir = context.ReadValue<Vector2>();
@@ -59,16 +59,16 @@ public class PlayerMovement : MonoBehaviour
                 newRotation.y = 180;
             transform.eulerAngles = newRotation;
         };
-        PlayerInteract.InputActions.Player.Move.canceled += context =>
+        PlayerInteract.Instance.InputActions.Player.Move.canceled += context =>
         {
             animator.SetBool("IsMoving", false);
             dir = Vector2.zero;
         };
-        PlayerInteract.InputActions.Player.Move.Enable();
+        PlayerInteract.Instance.InputActions.Player.Move.Enable();
     }
 
     private void OnDisable()
     {
-        PlayerInteract.InputActions.Player.Move.Disable();
+        PlayerInteract.Instance.InputActions.Player.Move.Disable();
     }
 }

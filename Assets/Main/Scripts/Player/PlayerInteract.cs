@@ -8,21 +8,23 @@ using UnityEngine.Serialization;
 public class PlayerInteract : MonoBehaviour
 {
     public static PlayerInteract Instance;
-    public static InputSystem_Actions InputActions;
+    public InputSystem_Actions InputActions;
     [field: SerializeField] public Collider2D interactColliderDetection { get; private set; }
     [field: SerializeField] public Vector2 interactColiderTopOffest { get; private set; }
     [field: SerializeField] public Vector2 interactColiderDownOffest { get; private set; }
     [field: SerializeField] public Vector2 interactColiderSideOffest { get; private set; }
 
     public UnityEvent OnNoInteract;
+    public UnityEvent OnActivateRuneAbility;
 
     private void Awake()
     {
         // if (OnNoInteract == null)
         //     OnNoInteract = new UnityEvent();
-        Instance = this;
         InputActions = new InputSystem_Actions();
     }
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,7 +39,9 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerInteract.InputActions.Player.Attack.performed += context =>
+        PlayerInteract.Instance = this;
+
+        InputActions.Player.Interact.performed += context =>
         {
             bool interacted = false;
             List<Collider2D> collisions = new List<Collider2D>();
@@ -59,11 +63,18 @@ public class PlayerInteract : MonoBehaviour
             if (interacted == false)
                 Inventory.PlayerInventory.DropRune();//OnNoInteract?.Invoke();
         };
-        PlayerInteract.InputActions.Player.Attack.Enable();
+        InputActions.Player.Interact.Enable();
+
+        InputActions.Player.Attack.performed += context =>
+        {
+            OnActivateRuneAbility.Invoke();
+        };
+        InputActions.Player.Attack.Enable();
     }
 
     private void OnDisable()
     {
-        PlayerInteract.InputActions.Player.Attack.Disable();
+        InputActions.Player.Attack.Disable();
+        InputActions.Player.Interact.Disable();
     }
 }
