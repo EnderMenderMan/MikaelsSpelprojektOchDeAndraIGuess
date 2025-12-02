@@ -41,5 +41,18 @@ public class KickRune : Rune
                 alters[tryIndex].KickItem();
             }
         }
+
+        if (kickFilters.Length == 0)
+        {
+            for (int i = 0; i < kickItemIndexOffsets.Length; i++)
+            {
+                int tryIndex = itemIndex + kickItemIndexOffsets[i];
+                if (tryIndex < 0 || tryIndex >= alters.Length)
+                    continue;
+                if (alters[tryIndex].equippedRune == null)
+                    continue;
+                alters[tryIndex].KickItem();
+            }
+        }
     }
 }

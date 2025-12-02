@@ -17,6 +17,7 @@ public struct AlterFilter
     //[Tooltip("Describes how the Runes Filter will be used")] public FilterType runeFilterType;
     //[Tooltip("Filter all rune tags in the alter cluster")] public string[] runesFilter;
     [Tooltip("Filter all rune tags in the alter cluster")] public Filter[] runesFilters;
+    [Tooltip("If set to true then all alters slot have to not contain a rune for this rune to be placed. This setting will disable and replace Rune Filters")] public bool runeNullSearch;
     [Tooltip("Used to select specific rune placements to run the Runes Filter on. IF EMPTY will run all runes. IF NOT EMPTY runs only selected indexes. -1 is one to the left and 2 is two to the right")] public int[] alterIndexOffsets;
     //[Header("Alter")]
     //[Tooltip("Describes how the Alter Filter will be used")] public FilterType alterFilterType;
@@ -31,7 +32,7 @@ public struct AlterFilter
         {
             if (filter.mode == FilterType.Disabled)
                 continue;
-        
+
             if (filter.mode == FilterType.Exclusive && cluster.tags.Contains(filter.tags) == true)
                 return false;
             if (filter.mode == FilterType.Inclusive && cluster.tags.Contains(filter.tags) == false)
@@ -53,16 +54,24 @@ public struct AlterFilter
         }
         return true;
     }
-    
+
     public bool RunRuneFilter(int alterIndex, Alter[] alters)
     {
+        if (runeNullSearch)
+        {
+            for (int i = 0; i < alters.Length; i++)
+                if (i != alterIndex && alters[i] != null)
+                    return false;
+            return true;
+        }
+
         foreach (var filter in runesFilters)
         {
             if (filter.mode == FilterType.Disabled)
                 continue;
-            
+
             bool foundRunes = false;
-        
+
             if (alterIndexOffsets.Length == 0)
             {
                 for (int i = 0; i < alters.Length; i++)
@@ -93,7 +102,6 @@ public struct AlterFilter
                     continue;
                 return false;
             }
-        
             if (foundRunes == false && filter.mode == FilterType.Inclusive)
                 return false;
         }
