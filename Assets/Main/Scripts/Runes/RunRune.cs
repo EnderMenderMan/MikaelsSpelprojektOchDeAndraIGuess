@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class RunRune : Rune
@@ -9,28 +10,24 @@ public class RunRune : Rune
         Run,
         Dead,
     }
-    [SerializeField] bool canRunFromAlter;
-    [SerializeField] bool canStartRunnigWhenIdle;
-    [SerializeField] float idleForTime;
+    
+    [Tooltip("Can jump off alter and start running")][field: SerializeField] public bool CanRunFromAlter { get; private set; }
+    [Tooltip("Can jump off when held by the player and start running")][field: SerializeField] public bool CanStartRunningWhenHold{ get; private set; }
+    [Tooltip("Can start running from the idle state (idle state mean that the rune is not moving)")][field: SerializeField] public bool CanStartRunningWhenIdle{ get; private set; }
+    [Tooltip("How much time to be idle for. 0 or less mean infinite time. (idle state mean that the rune is not moving)")][SerializeField] float idleForTime;
     float idleTimer;
-    [SerializeField] float moveForce;
-    [SerializeField] float moveMaxForce;
-    [SerializeField] float distanceWhenStartStop;
-    [SerializeField] Transform[] moveToPoints;
+    [Tooltip("How fast the runes movement accelerate")][SerializeField] float accelerationForce;
+    [Tooltip("The maximum speed the rune can travel at")][SerializeField] float moveMaxForce;
+    [Tooltip("How close to its targeted move point is has to go before it switches to a new point (too small values can cause problems)")][SerializeField] float distanceWhenStartStop;
+    [Tooltip("Points that the runes moves towards. Loop around when it reaches the final point")][SerializeField] Transform[] moveToPoints;
     State state;
     int moveToPointsIndex;
     Rigidbody2D rb;
 
-    public void SetCanRunFromAlter(bool value)
-    {
-        canRunFromAlter = value;
-    }
-    public void SetCanStartRunningWhenIdle(bool value)
-    {
-        canStartRunnigWhenIdle = value;
-        if (value = true)
-            StartRunningCheck();
-    }
+    [Header("Events")]
+    public UnityEvent whenChangedStateToIdle;
+    public UnityEvent whenChangedStateToRun;
+    
 
     protected override void Awake()
     {
@@ -50,21 +47,54 @@ public class RunRune : Rune
         UpdateTimer();
     }
 
-    void UpdateTimer()
+    public override void AfterDropped()
     {
-        if (state != State.Idle || idleTimer <= 0 || Inventory.PlayerInventory.heldRune.gameObject == gameObject)
-            return;
-        idleTimer -= Time.deltaTime;
-        StartRunningCheck();
+        if (state == State.Run)
+            transform.position = Inventory.PlayerInventory.transform.position;
+        base.AfterDropped();
     }
 
-    void StartRunningCheck()
+    public override void OnPickUp()
     {
+        base.OnPickUp();
+        if (CanStartRunningWhenHold && state == State.Run)
+            Inventory.PlayerInventory.ForceDropRune();
+    }
+
+    public override bool TryBePlaced(int alterIndex, Alter[] alters, AlterCluster cluster)
+    {
+        if (state == State.Run)
+        {
+            Inventory.PlayerInventory.ForceDropRune();
+            return false;
+        }
+        return base.TryBePlaced(alterIndex, alters, cluster);
+    }
+
+    void UpdateTimer()
+    {
+        if (CanStartRunningWhenIdle == false || ( CanRunFromAlter == false && alter != null))
+            return;
+        if (CanStartRunningWhenHold && Inventory.PlayerInventory.heldRune != null && Inventory.PlayerInventory.heldRune.gameObject == gameObject)
+            return;
+        if (state != State.Idle || idleTimer <= 0)
+            return;
+        idleTimer -= Time.deltaTime;
+        
         if (idleTimer > 0)
             return;
 
-        state = State.Run;
-        alter?.KickItem();
+        SwitchStates(State.Run);
+        if (alter != null)
+        {
+            Vector3 alterPos = alter.transform.position;
+            alter?.KickItem();
+            transform.position = alterPos;
+        }
+        else if (Inventory.PlayerInventory.heldRune != null && Inventory.PlayerInventory.heldRune.gameObject == gameObject)
+        {
+            Inventory.PlayerInventory.ForceDropRune();
+        }
     }
 
     void FixedUpdateMove()
@@ -85,10 +115,10 @@ public class RunRune : Rune
         distanceVecToPoint.Normalize();
         distanceVecToPoint *= moveMaxForce;
         Vector2 vectorDif = distanceVecToPoint - rb.linearVelocity;
-        if (vectorDif.magnitude < moveForce * Time.deltaTime)
+        if (vectorDif.magnitude < accelerationForce * Time.deltaTime)
             rb.linearVelocity = distanceVecToPoint;
         else
-            rb.linearVelocity += vectorDif.normalized * moveForce * Time.deltaTime;
+            rb.linearVelocity += vectorDif.normalized * (accelerationForce * Time.deltaTime);
 
     }
 
@@ -96,13 +126,35 @@ public class RunRune : Rune
     {
         FixedUpdateMove();
     }
+
+    public void SwitchToIdleState() => SwitchStates(State.Idle);
+    public void SwitchToRunState() => SwitchStates(State.Run);
+    public void SwitchStates(State newState)
+    {
+        switch (newState)
+        {
+            case State.Idle:
+                if (state == State.Idle)
+                    return;
+                idleTimer = idleForTime;
+                state = State.Idle;
+                whenChangedStateToIdle.Invoke();
+                break;
+            case State.Run:
+                if (state == State.Run)
+                    return;
+                state = State.Run;
+                idleTimer = idleForTime;
+                whenChangedStateToRun.Invoke();
+                break;
+        }
+    }
     protected override void BulletInteract(InteractData data)
     {
         if (state != State.Run)
             return;
 
-        idleTimer = idleForTime;
-        state = State.Idle;
+        SwitchStates(State.Idle);
         rb.linearVelocity = Vector2.zero;
         if (WorldData.Instance != null)
             transform.position = WorldData.Instance.GetCorrenctionToCellCenter(transform.position);

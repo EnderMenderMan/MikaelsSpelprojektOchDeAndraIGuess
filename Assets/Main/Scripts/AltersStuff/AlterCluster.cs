@@ -43,7 +43,7 @@ public class AlterCluster : MonoBehaviour
         else
             isClusterCompleted = false;
     }
-    public bool CanItemBePlaced(Rune rune, int alterIndex)
+    public bool TryItemBePlaced(Rune rune, int alterIndex)
     {
         if (isClusterDisabled)
             return false;

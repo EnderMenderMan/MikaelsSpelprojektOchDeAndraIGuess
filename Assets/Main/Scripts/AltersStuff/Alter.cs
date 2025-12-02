@@ -82,8 +82,11 @@ public class Alter : MonoBehaviour, IInteract
         {
             case InteractType.Player:
 
-                if (Inventory.PlayerInventory.heldRune && alterCluster.CanItemBePlaced(Inventory.PlayerInventory.heldRune, clusterIndex) == false)
+                if (Inventory.PlayerInventory.heldRune && alterCluster.TryItemBePlaced(Inventory.PlayerInventory.heldRune, clusterIndex) == false)
                 {
+                    if (Inventory.PlayerInventory.heldRune == null) // heldRune can be drop by TryItemBePlaced() function. see RuneRune TryBePlaced() override function
+                        return;
+                    
                     Rune heldRune = Inventory.PlayerInventory.heldRune;
                     Inventory.PlayerInventory.ForceDropRune();
                     heldRune.transform.position = transform.position + kickOffset;
