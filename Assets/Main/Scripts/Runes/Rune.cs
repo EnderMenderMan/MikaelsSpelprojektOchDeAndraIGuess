@@ -8,7 +8,7 @@ public class Rune : MonoBehaviour, IInteract
 {
     [CanBeNull] public RuneEvents Events { get; protected set; }
     [CanBeNull] public RuneAfterEvents AfterEvents { get; protected set; }
-    [Tooltip("Is used to determine if the rune can be placed on a alter")] [SerializeField] protected AlterFilter placeOnAlterFilter;
+    [Tooltip("Is used to determine if the rune can be placed on a alter")][SerializeField] protected AlterFilter placeOnAlterFilter;
     [NonSerialized][CanBeNull] public Alter alter;
     [field: SerializeField] public Tags tags;
     public bool IsInteractDisabled { get; set; }
@@ -36,7 +36,7 @@ public class Rune : MonoBehaviour, IInteract
             return false;
         if (placeOnAlterFilter.RunRuneFilter(alter.clusterIndex, cluster.alters) == false)
             return false;
-        
+
         return true;
     }
 
@@ -64,11 +64,18 @@ public class Rune : MonoBehaviour, IInteract
         AfterEvents = GetComponent<RuneAfterEvents>();
     }
 
-    public virtual void OnInteract()
+    public virtual void OnInteract(InteractData data)
     {
-        if (Inventory.PlayerInventory.TryPickUpRune(this) == false)
-            return;
-        OnGroundPickUp();
+        switch (data.type)
+        {
+            case InteractType.Player:
+
+                if (Inventory.PlayerInventory.TryPickUpRune(this) == false)
+                    return;
+                OnGroundPickUp();
+
+                break;
+        }
     }
 
     public (int thisAlterIndex, Alter[] alters) GetAlters() => alter.GetAlters();

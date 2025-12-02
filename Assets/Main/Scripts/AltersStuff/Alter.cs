@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 public class Alter : MonoBehaviour, IInteract
 {
     [field: SerializeField] public Tags tags;
+    [SerializeField] Vector2 offsetRunePosition;
     public AlterCluster alterCluster { get; private set; }
     public int clusterIndex { get; private set; }
     [SerializeField] Vector3 kickOffset;
@@ -41,7 +42,7 @@ public class Alter : MonoBehaviour, IInteract
         this.equippedRune = rune;
         rune.IsInteractDisabled = true;
         rune.alter = this;
-        rune.transform.position = transform.position;
+        rune.transform.position = transform.position + (Vector3)offsetRunePosition;
         alterCluster.TriggerItemPlacement(clusterIndex);
         Events?.onRunePlaced.Invoke();
         rune.AfterAlterPlace();
@@ -75,40 +76,48 @@ public class Alter : MonoBehaviour, IInteract
         rune.OnAlterPickUp();
         return true;
     }
-    public void OnInteract()
+    public void OnInteract(InteractData data)
     {
-        if (Inventory.PlayerInventory.heldRune && alterCluster.CanItemBePlaced(Inventory.PlayerInventory.heldRune, clusterIndex) == false)
+        switch (data.type)
         {
-            Rune heldRune = Inventory.PlayerInventory.heldRune;
-            Inventory.PlayerInventory.ForceDropRune();
-            heldRune.transform.position = transform.position + kickOffset;
-            return;
-        }
-        
-        if (Inventory.PlayerInventory.heldRune && equippedRune)
-        {
-            Rune heldRune = Inventory.PlayerInventory.heldRune;
-            Inventory.PlayerInventory.ForceDropRune();
-            PlayerTryPickUp(equippedRune);
-            KickItem();
-            PlaceItem(heldRune);
-            return;
+            case InteractType.Player:
+
+                if (Inventory.PlayerInventory.heldRune && alterCluster.CanItemBePlaced(Inventory.PlayerInventory.heldRune, clusterIndex) == false)
+                {
+                    Rune heldRune = Inventory.PlayerInventory.heldRune;
+                    Inventory.PlayerInventory.ForceDropRune();
+                    heldRune.transform.position = transform.position + kickOffset;
+                    return;
+                }
+
+                if (Inventory.PlayerInventory.heldRune && equippedRune)
+                {
+                    Rune heldRune = Inventory.PlayerInventory.heldRune;
+                    Inventory.PlayerInventory.ForceDropRune();
+                    PlayerTryPickUp(equippedRune);
+                    KickItem();
+                    PlaceItem(heldRune);
+                    return;
+                }
+
+                if (equippedRune)
+                {
+                    Rune rune = equippedRune;
+                    KickItem();
+                    PlayerTryPickUp(rune);
+                    return;
+                }
+
+                if (Inventory.PlayerInventory.heldRune)
+                {
+                    Rune rune = Inventory.PlayerInventory.heldRune;
+                    Inventory.PlayerInventory.ForceDropRune();
+                    PlaceItem(rune);
+                    return;
+                }
+
+                break;
         }
 
-        if (equippedRune)
-        {
-            Rune rune = equippedRune;
-            KickItem();
-            PlayerTryPickUp(rune);
-            return;
-        }
-
-        if (Inventory.PlayerInventory.heldRune)
-        {
-            Rune rune = Inventory.PlayerInventory.heldRune;
-            Inventory.PlayerInventory.ForceDropRune();
-            PlaceItem(rune);
-            return;
-        }
     }
 }
