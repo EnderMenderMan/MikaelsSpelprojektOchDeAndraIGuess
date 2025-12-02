@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     private Vector2 dir;
     public static Vector2 FacingDirection { get; private set; }
+    public static float MovingSpeed { get; private set; }
 
     private Rigidbody2D rb;
     Animator animator;
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsMoving", true);
             dir = context.ReadValue<Vector2>();
             FacingDirection = dir;
+            MovingSpeed = speed;
 
             if (dir.x != 0)
             {
@@ -64,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         };
         PlayerInteract.Instance.InputActions.Player.Move.canceled += context =>
         {
+            MovingSpeed = 0;
             animator.SetBool("IsMoving", false);
             dir = Vector2.zero;
         };

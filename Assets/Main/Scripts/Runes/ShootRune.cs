@@ -23,6 +23,8 @@ public class ShootRune : Rune
         GameObject projectileObject = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
         Rigidbody2D projectileRb = projectileObject.GetComponent<Rigidbody2D>();
         projectileRb.linearVelocity = PlayerMovement.FacingDirection * proectileSpeed;
+        if (PlayerMovement.MovingSpeed != 0)
+            projectileRb.linearVelocity += PlayerMovement.FacingDirection * PlayerMovement.MovingSpeed;
     }
 
     public override void OnPickUp()
