@@ -7,6 +7,19 @@ public struct Filter
 {
     [Tooltip("Describes how the filter will be used. INCLUSIVE: return true when at least one of the tags of this filter is included. EXCLUSIVE: return true if none of the tags is included")] public FilterType mode;
     [Tooltip("Describes what tags the filter will target")] public string[] tags;
+
+    public bool RunFilter(Tags otherTags)
+    {
+        if (mode == FilterType.Disabled)
+            return true;
+
+        if (mode == FilterType.Exclusive && otherTags.Contains(tags) == true)
+            return false;
+        if (mode == FilterType.Inclusive && otherTags.Contains(tags) == false)
+            return false;
+        return true;
+
+    }
 }
 [System.Serializable]
 public struct AlterFilter
@@ -30,12 +43,7 @@ public struct AlterFilter
     {
         foreach (var filter in clusterFilters)
         {
-            if (filter.mode == FilterType.Disabled)
-                continue;
-
-            if (filter.mode == FilterType.Exclusive && cluster.tags.Contains(filter.tags) == true)
-                return false;
-            if (filter.mode == FilterType.Inclusive && cluster.tags.Contains(filter.tags) == false)
+            if (filter.RunFilter(cluster.tags) == false)
                 return false;
         }
         return true;
@@ -45,11 +53,7 @@ public struct AlterFilter
     {
         foreach (var filter in alterFilters)
         {
-            if (filter.mode == FilterType.Disabled)
-                continue;
-            if (filter.mode == FilterType.Exclusive && alter.tags.Contains(filter.tags) == true)
-                return false;
-            if (filter.mode == FilterType.Inclusive && alter.tags.Contains(filter.tags) == false)
+            if (filter.RunFilter(alter.tags) == false)
                 return false;
         }
         return true;

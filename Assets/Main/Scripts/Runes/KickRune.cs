@@ -18,9 +18,7 @@ public class KickRune : Rune
                         continue;
                     if (alters[i].equippedRune == null)
                         continue;
-                    if (filter.mode == FilterType.Exclusive && alters[i].equippedRune.tags.Contains(filter.tags) == true)
-                        continue;
-                    if (filter.mode == FilterType.Inclusive && alters[i].equippedRune.tags.Contains(filter.tags) == false)
+                    if (filter.RunFilter(alters[i].equippedRune.tags) == false)
                         continue;
                     alters[i].KickItem();
                 }
@@ -34,9 +32,7 @@ public class KickRune : Rune
                     continue;
                 if (alters[tryIndex].equippedRune == null)
                     continue;
-                if (filter.mode == FilterType.Exclusive && alters[tryIndex].equippedRune.tags.Contains(filter.tags) == true)
-                    continue;
-                if (filter.mode == FilterType.Inclusive && alters[tryIndex].equippedRune.tags.Contains(filter.tags) == false)
+                if (filter.RunFilter(alters[tryIndex].equippedRune.tags) == false)
                     continue;
                 alters[tryIndex].KickItem();
             }
