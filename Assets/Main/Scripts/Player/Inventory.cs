@@ -38,7 +38,6 @@ public class Inventory : MonoBehaviour
     {
         if (heldRune == null)
             return false;
-
         heldRune.OnDropped();
         heldRune.gameObject.SetActive(false);
         if (WorldData.Instance != null && WorldData.Instance.IsGridSpaceFree(position) == false)

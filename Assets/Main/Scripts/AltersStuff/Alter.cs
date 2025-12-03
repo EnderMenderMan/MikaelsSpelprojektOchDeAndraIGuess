@@ -77,7 +77,8 @@ public class Alter : MonoBehaviour, IInteract
         if (forceDrop == false && canKickItems == false)
             return false;
         equippedRune.OnKicked();
-        equippedRune.IsInteractDisabled = false;
+        if (Inventory.PlayerInventory.heldRune != null && Inventory.PlayerInventory.heldRune.gameObject != equippedRune.gameObject) // rune may have been pickup and if so dont activate it
+            equippedRune.IsInteractDisabled = false;
         equippedRune.transform.position = transform.position + kickOffset;
         equippedRune.alter = null;
         equippedRune.AfterKicked();
