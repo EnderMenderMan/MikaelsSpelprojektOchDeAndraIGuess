@@ -1246,6 +1246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grow Rune
       objectReference: {fileID: 0}
+    - target: {fileID: 8788135154880650041, guid: e0b74967724a0d7de922face126a6ca9, type: 3}
+      propertyPath: playerGrowCheckCollider
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

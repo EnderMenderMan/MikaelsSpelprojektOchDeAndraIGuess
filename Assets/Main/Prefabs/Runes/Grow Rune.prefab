@@ -202,6 +202,8 @@ MonoBehaviour:
   tags:
     tags:
     - Grow
+  playerGrowCheckCollider: {fileID: 0}
+  resizeSpeed: 1
   whenActiveSize: 0.5
 --- !u!114 &3295884491140372061
 MonoBehaviour:
