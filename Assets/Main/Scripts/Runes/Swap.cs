@@ -1,9 +1,21 @@
 using System;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine;
 using UnityEngine.Events;
 public class Swap : Rune
 {
-    [Tooltip("When player places the rune on alter")] public UnityEvent onAlterPlaced;
-  //  public void SwapSelectedRune() => SwapSelectedRune((selectedRuneIndex + 1) % transformToRunes.Length);
+    public override void OnAlterPlace()
+    {
+        Console.WriteLine("hi");
+        Debug.Log("hiii");
+        //alter.equippedRune.transform.position 
+      // if (alter.clusterIndex == 0)
+            transform.position = alter.equippedRune.transform.position;
+            alter.equippedRune.transform.position = transform.position;
+
+            Console.WriteLine("hi");
+            Debug.Log("hiii");
+        
+    }
 }
