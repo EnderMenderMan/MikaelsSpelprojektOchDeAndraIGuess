@@ -359,6 +359,7 @@ MonoBehaviour:
     runesFilters: []
     runeNullSearch: 0
     alterIndexOffsets: 
+  resetPositionWhenDropedOrKicked: 0
   tags:
     tags: []
   onPickup:
