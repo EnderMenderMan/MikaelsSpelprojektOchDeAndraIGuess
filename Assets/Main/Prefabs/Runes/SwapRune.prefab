@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8281121588091563446}
   - component: {fileID: 8831839690823148537}
-  - component: {fileID: 5578035272813761536}
   - component: {fileID: 1855311754194892432}
   - component: {fileID: 7801807969819449183}
   m_Layer: 6
-  m_Name: SwapRune(NOTFINISHED)
+  m_Name: SwapRune
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,26 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5578035272813761536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4524294584209449100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 682098e5e2bd78642874ccf105f561c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  placeOnAlterFilter:
-    clusterFilters: []
-    alterFilters: []
-    runesFilters: []
-    runeNullSearch: 0
-    alterIndexOffsets: 
-  tags:
-    tags: []
 --- !u!61 &1855311754194892432
 BoxCollider2D:
   m_ObjectHideFlags: 0
