@@ -63,10 +63,14 @@ public class RunRune : Rune
 
     public override bool TryBePlaced(int alterIndex, Alter[] alters, AlterCluster cluster)
     {
-        if (state == State.Run)
+        if (state == State.Run && CanRunFromAlter)
         {
             Inventory.PlayerInventory.ShadowForceDropRune();
             return false;
+        }
+        else if (state == State.Run)
+        {
+            rb.linearVelocity = Vector2.zero;
         }
         return base.TryBePlaced(alterIndex, alters, cluster);
     }
@@ -99,7 +103,7 @@ public class RunRune : Rune
 
     void FixedUpdateMove()
     {
-        if (state != State.Run)
+        if (state != State.Run || (CanRunFromAlter == false && alter != null))
             return;
 
         if (Vector2.Distance(transform.position, moveToPoints[moveToPointsIndex].position) <= distanceWhenStartStop)
