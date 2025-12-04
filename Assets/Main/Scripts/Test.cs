@@ -1,9 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] private bool[] bools;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            LoadScene(0);
+    }
 
     public void TestLog(string input = "TEST")
     {
