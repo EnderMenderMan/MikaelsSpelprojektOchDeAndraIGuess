@@ -27,9 +27,8 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
-        
+        instance = this;
+
         mixerGroups = mixer.FindMatchingGroups("");
     }
 
@@ -44,10 +43,10 @@ public class SoundManager : MonoBehaviour
                 i--;
                 continue;
             }
-            
+
             audioLifeTimes[i].timer -= Time.deltaTime;
         }
-        
+
         for (int i = 0; i < delayedAudio.Count; i++)
         {
             if (delayedAudio[i].timer <= 0)
@@ -58,7 +57,7 @@ public class SoundManager : MonoBehaviour
                 i--;
                 continue;
             }
-            
+
             delayedAudio[i].timer -= Time.deltaTime;
         }
     }
@@ -70,8 +69,8 @@ public class SoundManager : MonoBehaviour
 
     public enum SoundType
     {
-        PlayerMove, RunePlacement, RunePickup, RuneAmbience, LevelAmbience, 
-        
+        PlayerMove, RunePlacement, RunePickup, RuneAmbience, LevelAmbience,
+
     }
     public enum MixerType
     {
@@ -81,7 +80,7 @@ public class SoundManager : MonoBehaviour
         Player,
         SFX,
     }
-    
+
     [SerializeField] private Sounds[] soundsArray;
 
     [System.Serializable]
@@ -94,11 +93,11 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(SoundType soundType, MixerType mixerType, float startDelay)
     {
-        delayedAudio.Add(new AudioData{playAt = gameObject, soundType = soundType, mixerType = mixerType, timer = startDelay });
+        delayedAudio.Add(new AudioData { playAt = gameObject, soundType = soundType, mixerType = mixerType, timer = startDelay });
     }
     public void PlaySound(GameObject audioOrigin, SoundType soundType, MixerType mixerType, float startDelay)
     {
-        delayedAudio.Add(new AudioData{playAt = audioOrigin, soundType = soundType, mixerType = mixerType, timer = startDelay });
+        delayedAudio.Add(new AudioData { playAt = audioOrigin, soundType = soundType, mixerType = mixerType, timer = startDelay });
     }
     public AudioSource PlaySound(GameObject audioOrigin, SoundType soundType, MixerType mixerType)
     {
@@ -111,12 +110,12 @@ public class SoundManager : MonoBehaviour
             audioSource.outputAudioMixerGroup = GetMixerGroup(mixerType);
             audioSource.resource = randomAudioClip;
             audioSource.Play();
-            
+
             if (audioSource.clip == null)
-                audioLifeTimes.Add(new AudioLifeTime{source = audioSource, timer = 5f });
+                audioLifeTimes.Add(new AudioLifeTime { source = audioSource, timer = 5f });
             else
-                audioLifeTimes.Add(new AudioLifeTime{source = audioSource, timer = audioSource.clip.length });
-            
+                audioLifeTimes.Add(new AudioLifeTime { source = audioSource, timer = audioSource.clip.length });
+
             return audioSource;
         }
 
