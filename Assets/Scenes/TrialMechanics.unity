@@ -2378,7 +2378,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1796683823641969113, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 707146695}
   m_SourcePrefab: {fileID: 100100000, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
 --- !u!1 &526120781
 GameObject:
@@ -3498,6 +3501,23 @@ Transform:
   - {fileID: 1902412664}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &707146684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1796683823641969113, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
+  m_PrefabInstance: {fileID: 498611152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &707146695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707146684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92efe6e5176e57b41b10243bb47dbd88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &711321693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3611,6 +3631,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e95d8ee55ca68d2b1c8bf1d7d42a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enablePlaySounds: 1
+  pickUpSound: {fileID: 0}
+  dropSound: {fileID: 0}
+  placeSound: {fileID: 0}
+  kickSound: {fileID: 0}
   placeOnAlterFilter:
     clusterFilters: []
     alterFilters: []
@@ -6215,6 +6240,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e95d8ee55ca68d2b1c8bf1d7d42a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enablePlaySounds: 1
+  pickUpSound: {fileID: 0}
+  dropSound: {fileID: 0}
+  placeSound: {fileID: 0}
+  kickSound: {fileID: 0}
   placeOnAlterFilter:
     clusterFilters: []
     alterFilters: []
@@ -6443,6 +6473,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e95d8ee55ca68d2b1c8bf1d7d42a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enablePlaySounds: 1
+  pickUpSound: {fileID: 0}
+  dropSound: {fileID: 0}
+  placeSound: {fileID: 0}
+  kickSound: {fileID: 0}
   placeOnAlterFilter:
     clusterFilters: []
     alterFilters: []
