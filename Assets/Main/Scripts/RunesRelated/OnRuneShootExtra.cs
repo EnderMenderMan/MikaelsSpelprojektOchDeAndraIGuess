@@ -8,13 +8,15 @@ public class OnRuneShootExtra : MonoBehaviour, IInteract
 
     public void OnInteract(InteractData data)
     {
-        Debug.Log("Aw");
         switch (data.type)
         {
             case InteractType.Bullet:
                 if (equpRuneWhenShoot)
                 {
-                    Inventory.PlayerInventory.DropRune();
+                    Rune rune = Inventory.PlayerInventory.heldRune;
+                    rune.OnDropped();
+                    Inventory.PlayerInventory.ShadowForceDropRune();
+                    rune.AfterDropped();
                     Inventory.PlayerInventory.TryPickUpRune(GetComponent<Rune>());
                 }
 
