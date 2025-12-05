@@ -154,9 +154,13 @@ public class Alter : MonoBehaviour, IInteract
                         return;
 
                     Rune heldRune = Inventory.PlayerInventory.heldRune;
-                    if (PlayerTryPickUp(equippedRune) == false)
+
+                    if (Inventory.PlayerInventory.CanPickupRune(equippedRune) == false)
                         return;
+
+                    Rune oldEquippedRune = equippedRune;
                     TryKickItem(true);
+                    PlayerTryPickUp(oldEquippedRune);
                     PlaceItem(heldRune);
                     return;
                 }
@@ -166,9 +170,12 @@ public class Alter : MonoBehaviour, IInteract
                     if (canPickupItems == false)
                         return;
 
-                    if (PlayerTryPickUp(equippedRune) == false)
+                    if (Inventory.PlayerInventory.CanPickupRune(equippedRune) == false)
                         return;
+
+                    Rune oldEquippedRune = equippedRune;
                     TryKickItem(true);
+                    PlayerTryPickUp(oldEquippedRune);
                     return;
                 }
 

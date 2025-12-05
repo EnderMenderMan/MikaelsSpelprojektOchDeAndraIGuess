@@ -18,6 +18,30 @@ public class Inventory : MonoBehaviour
         heldRune.OnPickUp();
         return true;
     }
+
+    public bool CanPickupRune(Rune rune)
+    {
+        if (heldRune != null && CanDropRune() == false)
+            return false;
+
+        return true;
+    }
+    public bool CanDropRune()
+    {
+        if (heldRune == null)
+            return false;
+        return CanDropRune(heldRune.transform.position);
+    }
+    public bool CanDropRune(Vector3 position)
+    {
+        if (heldRune == null)
+            return false;
+        if (WorldData.Instance != null && WorldData.Instance.IsGridSpaceFree(position) == false)
+            return false;
+
+        return true;
+    }
+
     public void ShadowForcePickUp(Rune rune)
     {
         if (rune == null)
@@ -34,6 +58,7 @@ public class Inventory : MonoBehaviour
         return DropRuneAtPosition(heldRune.transform.position);
 
     }
+
     public bool DropRuneAtPosition(Vector2 position)
     {
         if (heldRune == null)
