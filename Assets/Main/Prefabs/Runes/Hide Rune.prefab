@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 553801701984050874}
   - component: {fileID: 8656248895778544052}
   - component: {fileID: 5619575141846186062}
+  - component: {fileID: 8870021354835355822}
   m_Layer: 6
   m_Name: Hide Rune
   m_TagString: Interactable
@@ -109,11 +110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e503774b2302e18ab33bc8f9f91a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enablePlaySounds: 1
-  pickUpSound: {fileID: 0}
-  dropSound: {fileID: 0}
-  placeSound: {fileID: 0}
-  kickSound: {fileID: 0}
+  audio:
+    enablePlaySounds: 1
+    pickUpSound: {fileID: 0}
+    dropSound: {fileID: 0}
+    placeSound: {fileID: 0}
+    kickSound: {fileID: 0}
   placeOnAlterFilter:
     clusterFilters: []
     alterFilters: []
@@ -361,6 +363,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &8870021354835355822
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175480632544671886}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3fb92452e5c2e36baac5149011b25dbe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2287442441455076879
 GameObject:
   m_ObjectHideFlags: 0

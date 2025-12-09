@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -14,6 +15,9 @@ public class Alter : MonoBehaviour, IInteract
     [SerializeField] Vector3 kickOffset;
     [CanBeNull] public Rune equippedRune;
     [CanBeNull] public AlterEvents Events { get; private set; }
+
+    [SerializeField] float kickDelay = 1f;
+    Coroutine kickCorutine;
 
 
 
@@ -76,6 +80,18 @@ public class Alter : MonoBehaviour, IInteract
             return false;
         if (forceDrop == false && canKickItems == false)
             return false;
+        if (kickCorutine != null)
+            StopCoroutine(kickCorutine);
+        StartCoroutine(KickCorutine(kickDelay));
+        return true;
+    }
+    bool KickItemWithoutDelay(bool forceDrop = true)
+    {
+        if (equippedRune == null)
+            return false;
+        if (forceDrop == false && canKickItems == false)
+            return false;
+
         equippedRune.OnKicked();
         if (Inventory.PlayerInventory.heldRune == null || Inventory.PlayerInventory.heldRune.gameObject != equippedRune.gameObject) // rune may have been pickup and if so dont activate it
             equippedRune.IsInteractDisabled = false;
@@ -165,7 +181,7 @@ public class Alter : MonoBehaviour, IInteract
                 return;
 
             Rune oldEquippedRune = equippedRune;
-            TryKickItem(true);
+            KickItemWithoutDelay(true);
             PlayerTryPickUp(oldEquippedRune);
             PlaceItem(heldRune);
             return;
@@ -180,7 +196,7 @@ public class Alter : MonoBehaviour, IInteract
                 return;
 
             Rune oldEquippedRune = equippedRune;
-            TryKickItem(true);
+            KickItemWithoutDelay(true);
             PlayerTryPickUp(oldEquippedRune);
             return;
         }
@@ -192,5 +208,21 @@ public class Alter : MonoBehaviour, IInteract
             PlaceItem(rune);
             return;
         }
+    }
+
+    IEnumerator KickCorutine(float kickTime)
+    {
+        Animator animator = equippedRune.GetComponent<Animator>();
+        if (animator != null)
+            animator.SetBool("IsKicked", true);
+        while (kickTime > 0)
+        {
+            kickTime -= Time.deltaTime;
+            yield return null;
+        }
+        if (animator != null)
+            animator.SetBool("IsKicked", false);
+
+        KickItemWithoutDelay(true);
     }
 }
