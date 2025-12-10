@@ -122,7 +122,7 @@ public class Rune : MonoBehaviour, IInteract
     IEnumerator RestPositionCorutine()
     {
         IsInteractDisabled = true;
-        ParticleSystem particleSystem = GetComponentInChildren<ParticleSystem>();
+        ParticleSystem particleSystem = GetComponentInChildren<ParticleSystem>(); // May whant to change to some other method
         if (particleSystem != null)
             particleSystem.Play();
         yield return null;

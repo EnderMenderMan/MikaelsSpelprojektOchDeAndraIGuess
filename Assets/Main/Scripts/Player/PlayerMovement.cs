@@ -9,9 +9,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     private Vector2 dir;
-    private Vector2 dirClamped;
-    private Vector2[] dirPressedOrder = new Vector2[4];
-    private int dirPressedOrderCountainLength;
     public static Vector2 FacingDirection { get; private set; }
     public static float MovingSpeed { get; private set; }
     public static PlayerMovement Instance { get; private set; }
@@ -27,10 +24,17 @@ public class PlayerMovement : MonoBehaviour
     Collider2D interactColider;
 
 
+    #region ChangeSize
     class ChangeStackValues { public float sizeToChange, changeRate; public (float sizeToChange, float changeRate) previus; }
     List<ChangeStackValues> changeSizeStack = new List<ChangeStackValues>();
     bool stopGrow, hasReverted;
     Vector3 previusScale;
+    #endregion
+
+    #region KeyPressOrder
+    private Vector2 dirClamped;
+    private Vector2[] dirPressedOrder = new Vector2[4];
+    private int dirPressedOrderCountainLength;
 
     void AddDirPressedOrder(Vector2 dir)
     {
@@ -65,34 +69,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     Vector2 GetLastDirPressed() => dirPressedOrder[dirPressedOrderCountainLength - 1];
-    Vector2 GetVectorClampToOne(Vector2 vec)
-    {
-        vec.x = GetFloatClampToOne(vec.x);
-        vec.y = GetFloatClampToOne(vec.y);
-        return vec;
-    }
-    float GetFloatClampToOne(float value)
-    {
-        if (value == 0)
-            return 0;
-        if (value < 0)
-            return -1;
+    #endregion
 
-        return 1;
-    }
-    int CountVectorValues(Vector2 vec, float value)
-    {
-        if (vec.x == value && vec.y == value)
-            return 2;
-        if (vec.x == value || vec.y == value)
-            return 1;
-        return 0;
-    }
-    Vector3 ScaleByWorlGridCellSize(Vector3 vec)
-    {
-        vec.Scale(WorldData.Instance.WorldGrid.cellSize);
-        return vec;
-    }
 
     void Awake()
     {
@@ -136,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
             if (dirPressedOrderCountainLength == 0)
                 return;
 
-            SetGridMovementTargetPosition(transform.position + ScaleByWorlGridCellSize(GetLastDirPressed()));
+            SetGridMovementTargetPosition(transform.position + Utility.ScaleByWorlGridCellSize(GetLastDirPressed()));
         }
 
     }
@@ -246,19 +224,18 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsMoving", true);
             Vector2 contextValue = context.ReadValue<Vector2>();
-            Vector2 contextValueClamped = GetVectorClampToOne(contextValue);
-            if (CountVectorValues(contextValueClamped, 0) < CountVectorValues(dir, 0))
+            Vector2 contextValueClamped = Utility.GetVectorClampToOne(contextValue);
+            if (Utility.CountVectorValues(contextValueClamped, 0) < Utility.CountVectorValues(dir, 0))
                 AddDirPressedOrder(contextValueClamped - dirClamped);
             else
                 RemovePressedOrder(dirClamped - contextValueClamped);
             dirClamped = contextValueClamped;
             dir = contextValue;
-            // Debug.Log("New: " + GetLastDirPressed() + " : " + contextValue);
 
             FacingDirection = dir;
 
             if (enableGridBasedMovement)
-                SetGridMovementTargetPosition(transform.position + ScaleByWorlGridCellSize(GetLastDirPressed()));
+                SetGridMovementTargetPosition(transform.position + Utility.ScaleByWorlGridCellSize(GetLastDirPressed()));
             else if (enableGridBasedMovement == false)
                 MovingSpeed = speed;
 

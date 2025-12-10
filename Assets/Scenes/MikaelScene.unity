@@ -7956,7 +7956,7 @@ PrefabInstance:
     - target: {fileID: 149950781708927336, guid: 702053f9023d5c04fa0aa027572ef475, type: 3}
       propertyPath: onDrop.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 540707393}
+      objectReference: {fileID: 0}
     - target: {fileID: 149950781708927336, guid: 702053f9023d5c04fa0aa027572ef475, type: 3}
       propertyPath: onDrop.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -7964,7 +7964,7 @@ PrefabInstance:
     - target: {fileID: 149950781708927336, guid: 702053f9023d5c04fa0aa027572ef475, type: 3}
       propertyPath: onDrop.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 994549774}
+      objectReference: {fileID: 0}
     - target: {fileID: 149950781708927336, guid: 702053f9023d5c04fa0aa027572ef475, type: 3}
       propertyPath: onDrop.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play
@@ -8995,11 +8995,6 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1759847528506429403, guid: 9ba0964384efe5888bafbb0021000956, type: 3}
   m_PrefabInstance: {fileID: 645931020}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &540707393 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7961116209107959930, guid: 702053f9023d5c04fa0aa027572ef475, type: 3}
-  m_PrefabInstance: {fileID: 275519260}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &549141336
 PrefabInstance:
@@ -10158,11 +10153,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 702053f9023d5c04fa0aa027572ef475, type: 3}
---- !u!82 &994549774 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 714336469145156272, guid: 702053f9023d5c04fa0aa027572ef475, type: 3}
-  m_PrefabInstance: {fileID: 275519260}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1026041864 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 634175506584983883, guid: c01597d69a103504b837f305448143c9, type: 3}
