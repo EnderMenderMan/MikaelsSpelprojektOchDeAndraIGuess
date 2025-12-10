@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -116,7 +117,25 @@ public class Rune : MonoBehaviour, IInteract
 
     public void ResetPosition()
     {
+        StartCoroutine(RestPositionCorutine());
+    }
+    IEnumerator RestPositionCorutine()
+    {
+        IsInteractDisabled = true;
+        ParticleSystem particleSystem = GetComponentInChildren<ParticleSystem>();
+        if (particleSystem != null)
+            particleSystem.Play();
+        yield return null;
+        while (Vector2.Distance(transform.position, originalPosition) > 0.01f)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, originalPosition, 20f * Time.deltaTime);
+            yield return null;
+        }
         transform.position = originalPosition;
+        if (particleSystem != null)
+            particleSystem.Stop();
+        IsInteractDisabled = false;
+
     }
 
     protected virtual void Awake()
