@@ -8,6 +8,7 @@ public class SceneLoaderExtra : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) 
             OnESCPressed.Invoke();
-
     }
+
+    //public void ContinuesGame(MenuScritablleObject menuScritablleObject) { MenuScritablleObject.continueGame = true; }
 }
