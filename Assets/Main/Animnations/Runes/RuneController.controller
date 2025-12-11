@@ -206,7 +206,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsKicked
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: IsKicked
+    m_ConditionEvent: IsLocked
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7029213420973565176}

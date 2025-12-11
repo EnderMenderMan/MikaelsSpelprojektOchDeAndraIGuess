@@ -8789,7 +8789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7169545167368832228, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
       propertyPath: kickDelay
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7169545167368832228, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
       propertyPath: canKickItems
@@ -9475,11 +9475,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6623871745837792498, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.02
+      value: -0.32
       objectReference: {fileID: 0}
     - target: {fileID: 6623871745837792498, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.19
+      value: 2.52
       objectReference: {fileID: 0}
     - target: {fileID: 6623871745837792498, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: m_LocalPosition.z
