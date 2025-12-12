@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: "F\xE4rdig Pedestal"
+    m_Hash: 617487332
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: OFF Symbol
+      m_Hash: 458894924
+      m_Sprite: {fileID: 1722352898741781265, guid: ccd4638569d549d489cf3047f77aaf9c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1722352898741781265, guid: ccd4638569d549d489cf3047f77aaf9c, type: 3}
+    - m_Name: ON Symbol
+      m_Hash: 237937495
+      m_Sprite: {fileID: -1089308417184592781, guid: ccd4638569d549d489cf3047f77aaf9c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1089308417184592781, guid: ccd4638569d549d489cf3047f77aaf9c, type: 3}
+    - m_Name: Pedestal
+      m_Hash: 967656183
+      m_Sprite: {fileID: -8941887604106959200, guid: ccd4638569d549d489cf3047f77aaf9c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8941887604106959200, guid: ccd4638569d549d489cf3047f77aaf9c, type: 3}
+    - m_Name: Vines (locked)
+      m_Hash: 416723048
+      m_Sprite: {fileID: 6537330301864452910, guid: ccd4638569d549d489cf3047f77aaf9c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6537330301864452910, guid: ccd4638569d549d489cf3047f77aaf9c, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 639011389463029781
+  m_Version: 1

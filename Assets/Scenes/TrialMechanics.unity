@@ -5518,6 +5518,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnJPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1058901252
 GameObject:
   m_ObjectHideFlags: 0
@@ -7363,6 +7366,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  OnJPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1427521921
 PrefabInstance:
   m_ObjectHideFlags: 0
