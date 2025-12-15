@@ -8775,6 +8775,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2403056022919469880, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403056022919469880, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403056022919469880, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 835458334}
+    - target: {fileID: 2403056022919469880, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403056022919469880, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TestLog
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403056022919469880, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Test, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403056022919469880, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Done
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403056022919469880, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2560635979844986405, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
       propertyPath: m_Name
       value: AlterCluster
@@ -8814,7 +8846,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2560635979844986405, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 835458334}
   m_SourcePrefab: {fileID: 100100000, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
 --- !u!4 &451139540 stripped
 Transform:
@@ -9461,6 +9496,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0a098c46499f32468842dead8911036, type: 3}
+--- !u!1 &835458332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2560635979844986405, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+  m_PrefabInstance: {fileID: 451139539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &835458334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835458332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92efe6e5176e57b41b10243bb47dbd88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &839569814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10535,6 +10590,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92efe6e5176e57b41b10243bb47dbd88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &1165673388
 Transform:
   m_ObjectHideFlags: 0
@@ -11444,7 +11502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1434338563
 Transform:
   m_ObjectHideFlags: 0
@@ -12414,7 +12472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1855726776
 Transform:
   m_ObjectHideFlags: 0
