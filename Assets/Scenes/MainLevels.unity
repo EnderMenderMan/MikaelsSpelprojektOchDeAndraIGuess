@@ -48710,6 +48710,26 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: tags.tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'tags.tags.Array.data[0]'
+      value: kick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.data[0].tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'kickFilters.Array.data[0].tags.Array.data[0]'
+      value: kick
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51432,6 +51452,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 9104004871746695239, guid: e0a098c46499f32468842dead8911036, type: 3}
+      propertyPath: placeOnAlterFilter.runesFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104004871746695239, guid: e0a098c46499f32468842dead8911036, type: 3}
+      propertyPath: placeOnAlterFilter.runesFilters.Array.data[0].tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104004871746695239, guid: e0a098c46499f32468842dead8911036, type: 3}
+      propertyPath: 'placeOnAlterFilter.runesFilters.Array.data[0].tags.Array.data[0]'
+      value: kick
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53916,6 +53948,30 @@ PrefabInstance:
     - target: {fileID: 8368859990788354250, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: m_SortingOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: tags.tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'tags.tags.Array.data[0]'
+      value: kick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.data[0].mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: kickFilters.Array.data[0].tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'kickFilters.Array.data[0].tags.Array.data[0]'
+      value: kick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
