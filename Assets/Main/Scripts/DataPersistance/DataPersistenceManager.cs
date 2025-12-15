@@ -8,16 +8,18 @@ public class DataPersistenceManager : MonoBehaviour
 
     [Header("File Storage")]
     [SerializeField] string fileName;
+    [SerializeField] bool DebugLogWhereDoesItSave;
 
     private GameData gameData;
     private List<IDataPersitiens> dataPersistenceObjcets;
 
-    public FileDataHandler DataHandler {  get; private set; }
+    public FileDataHandler DataHandler { get; private set; }
     public static DataPersistenceManager Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
+        gameData = null;
     }
     private void Start()
     {
@@ -30,15 +32,26 @@ public class DataPersistenceManager : MonoBehaviour
     {
         gameData = new GameData();
     }
-    public void LoadGame()
+    void LoadGameDataFromFile()
     {
         this.gameData = DataHandler.Load();
-        if (gameData == null)
-        {
-            NewGameData();
-            Debug.Log("created savefile at: " + Application.persistentDataPath + "/" + fileName);
-        }
 
+        if (gameData != null)
+            return;
+
+        NewGameData();
+        Debug.Log("created savefile at: " + Application.persistentDataPath + "/" + fileName);
+
+
+    }
+    public void CallLoadData(IDataPersitiens persistens)
+    {
+        LoadGameDataFromFile();
+        persistens.LoadData(gameData);
+    }
+    public void LoadGame()
+    {
+        LoadGameDataFromFile();
         foreach (IDataPersitiens dataPer in dataPersistenceObjcets)
             dataPer.LoadData(gameData);
     }
@@ -60,8 +73,17 @@ public class DataPersistenceManager : MonoBehaviour
     }
     private List<IDataPersitiens> FindAllDataPersistenceObjects()
     {
-        IEnumerable<IDataPersitiens> dataPersistenceObjcets = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include,FindObjectsSortMode.None).OfType<IDataPersitiens>();
+        IEnumerable<IDataPersitiens> dataPersistenceObjcets = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<IDataPersitiens>();
 
         return new List<IDataPersitiens>(dataPersistenceObjcets);
+    }
+
+    void OnValidate()
+    {
+        if (DebugLogWhereDoesItSave)
+        {
+            DebugLogWhereDoesItSave = false;
+            Debug.Log("Save file location: " + Application.persistentDataPath + "/" + fileName);
+        }
     }
 }
