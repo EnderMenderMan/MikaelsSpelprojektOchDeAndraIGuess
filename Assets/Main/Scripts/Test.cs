@@ -25,4 +25,17 @@ public class Test : MonoBehaviour
     {
         SceneManager.LoadScene(buildIndex);
     }
+    public void PrintChildren()
+    {
+        foreach (Transform child in GetComponentsInChildren<Transform>())
+        {
+            Debug.Log("Name: " + child.name);
+        }
+    }
+    public void TestTriggerAddHint(int index)
+    {
+        if (Journal.Instance == null)
+            return;
+        Journal.Instance.TryAddHint((Journal.HintType)index);
+    }
 }

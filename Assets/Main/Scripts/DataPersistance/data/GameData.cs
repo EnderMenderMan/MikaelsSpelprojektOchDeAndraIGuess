@@ -7,16 +7,16 @@ public class GameData
         Normal,
         Hard,
     }
-    public struct Journal
+    public struct JournalSaveData
     {
-        int[] reveledClueIndexes;
+        public Journal.HintState[] hintStates;
     }
 
     public (float x, float y) playerPosition;
     public int loadedSceneIndex;
     public int loadedLevelIndex;
-    public Difficulty difficulty = Difficulty.Normal;
-    public Journal journal;
+    public static Difficulty difficulty = Difficulty.Normal;
+    public JournalSaveData journal;
     // music
     public float[] soundsVolume;
 
