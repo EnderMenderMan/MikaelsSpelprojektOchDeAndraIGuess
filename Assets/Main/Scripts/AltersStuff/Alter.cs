@@ -244,6 +244,7 @@ public class Alter : MonoBehaviour, IInteract
         equippedRune.countToAlterClusterComplete = true;
         if (stopkickCorutine == false)
             KickItemWithoutDelay(true);
+        AlterSymbol.sprite = OffSprite;
         stopkickCorutine = false;
     }
 }
