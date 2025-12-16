@@ -1,9 +1,22 @@
 [System.Serializable]
 public class GameData
 {
+    public enum Difficulty
+    {
+        Easy,
+        Normal,
+        Hard,
+    }
+    public struct Journal
+    {
+        int[] reveledClueIndexes;
+    }
+
     public (float x, float y) playerPosition;
     public int loadedSceneIndex;
     public int loadedLevelIndex;
+    public Difficulty difficulty = Difficulty.Normal;
+    public Journal journal;
     // music
     public float[] soundsVolume;
 
