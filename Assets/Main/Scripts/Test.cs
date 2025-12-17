@@ -36,6 +36,6 @@ public class Test : MonoBehaviour
     {
         if (Journal.Instance == null)
             return;
-        Journal.Instance.TryAddHint((Journal.HintType)index);
+        Journal.Instance.TryTriggerHint((Journal.HintType)index);
     }
 }

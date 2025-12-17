@@ -2,10 +2,10 @@ using UnityEngine;
 using System;
 using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
+using TMPro;
 
 public class Journal : MonoBehaviour, IDataPersitiens
 {
-    [Tooltip("The text where the hints are writen to (Temporary)")][SerializeField] TMPro.TextMeshProUGUI textElement;
     public static Journal Instance { get; private set; }
     public enum HintType
     {
@@ -23,39 +23,72 @@ public class Journal : MonoBehaviour, IDataPersitiens
         WallRune,
         LastElementUsedOnlyForCode,
     }
-    public enum HintState
-    {
-        NotAdded,
-        Added,
-        Removed,
-    }
+    // public enum HintState
+    // {
+    //     NotAdded,
+    //     Added,
+    //     Removed,
+    // }
 
     [System.Serializable]
     public struct Hint
     {
-        [NonSerialized] public HintState state;
-        public string normal;
-        public string hard;
+        [NonSerialized] public int state;
+        public TextMeshProUGUI textElement;
+        [TextArea(1, 3)] public string[] esay;
+        [TextArea(1, 3)] public string[] normal;
+        [TextArea(1, 3)] public string[] hard;
     }
+    int hintOrderIndex;
+    [SerializeField] HintType[] hintOrder;
     [SerializedDictionary("HintType", "Hint")] public SerializedDictionary<HintType, Hint> hints;
     Hint[] hintsArray;
 
 
-    public void TryAddHint(HintType hintType)
+    public void TriggerNextHint()
     {
-        if (hintsArray[(int)hintType].state == HintState.Added)
+
+        if (hintOrderIndex >= hintOrder.Length)
             return;
 
-        hintsArray[(int)hintType].state = HintState.Added;
+
+        TryTriggerHint(hintOrder[hintOrderIndex]);
+        hintOrderIndex++;
+
+        return;
+    }
+    public bool TryTriggerHint(HintType hintType)
+    {
+        if (hintsArray[(int)hintType].state < 0)
+            return false;
+
+        if (hintsArray[(int)hintType].textElement == null)
+            return true;
+
+        Hint targetHint = hintsArray[(int)hintType];
         switch (GameData.difficulty)
         {
+            case GameData.Difficulty.Easy:
+                TrySetTextElementHint(targetHint, targetHint.esay);
+                break;
             case GameData.Difficulty.Normal:
-                textElement.text += hintsArray[(int)hintType].normal + '\n';
+                TrySetTextElementHint(targetHint, targetHint.normal);
                 break;
             case GameData.Difficulty.Hard:
-                textElement.text += hintsArray[(int)hintType].hard + '\n';
+                TrySetTextElementHint(targetHint, targetHint.hard);
                 break;
         }
+        hintsArray[(int)hintType].state++;
+        return true;
+    }
+    bool TrySetTextElementHint(Hint hint, string[] textArray)
+    {
+        int arrayIndex = hint.state;
+        if (textArray.Length <= arrayIndex)
+            return false;
+
+        hint.textElement.text = textArray[arrayIndex];
+        return true;
     }
 
     void Awake()
@@ -91,8 +124,8 @@ public class Journal : MonoBehaviour, IDataPersitiens
             hintsArray[i].state = data.journal.hintStates[i];
             switch (hintsArray[i].state)
             {
-                case HintState.Added:
-                    TryAddHint((HintType)i);
+                case 1:
+                    TryTriggerHint((HintType)i);
                     break;
             }
         }
@@ -100,7 +133,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
 
     public void SaveData(ref GameData data)
     {
-        data.journal.hintStates = new HintState[hintsArray.Length];
+        data.journal.hintStates = new int[hintsArray.Length];
         for (int i = 0; i < hintsArray.Length; i++)
         {
             data.journal.hintStates[i] = hintsArray[i].state;

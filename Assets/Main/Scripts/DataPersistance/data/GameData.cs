@@ -10,7 +10,7 @@ public class GameData
     }
     public struct JournalSaveData
     {
-        public Journal.HintState[] hintStates;
+        public int[] hintStates;
     }
 
     public (float x, float y) playerPosition;
