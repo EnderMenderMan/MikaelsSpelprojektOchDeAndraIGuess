@@ -8,7 +8,7 @@ public class LevelLoad : MonoBehaviour
     [NonSerialized] public int levelIndex = -1;
     [Tooltip("if true will enable this gameobject (SetActive(true)) when this level is loaded (the function LoadLevel() is called)")][SerializeField] bool enableGameObjectOnLoad = true;
     [Tooltip("if true when this gameobject gets enabled (SetActive(true)) then call the function OnThisLevelEnter()")][SerializeField] bool enableAutoCallOnThisLevelEnter = true;
-    [Tooltip("if true then this level will trigger progression of journal hints")][SerializeField] private bool triggerJournalHint = true;
+    [Tooltip("if bigger then 0 then this level will trigger progression of journal hints X amount of times. X being the this number")][SerializeField] private int triggerNextjournalHintAmount = 1;
     [SerializeField] UnityEvent onLevelLoad;
     private bool hasLoaded = false;
     public void LoadLevel()
@@ -26,7 +26,7 @@ public class LevelLoad : MonoBehaviour
     {
         if (levelIndex == -1 || enableAutoCallOnThisLevelEnter == false)
             return;
-        
+
         if (hasLoaded == false)
             StartCoroutine(CallOnLevelEnterNextFrame());
         hasLoaded = true;
@@ -34,8 +34,9 @@ public class LevelLoad : MonoBehaviour
 
     private void OnDisable()
     {
-        if (triggerJournalHint && GameData.difficulty == GameData.Difficulty.Normal)
-            Journal.Instance.TriggerNextHint();
+        if (triggerNextjournalHintAmount > 0 && GameData.difficulty == GameData.Difficulty.Normal)
+            for (int i = 0; i < triggerNextjournalHintAmount; i++)
+                Journal.Instance.TriggerNextHint();
     }
 
     IEnumerator CallOnLevelEnterNextFrame()
@@ -43,10 +44,11 @@ public class LevelLoad : MonoBehaviour
         yield return null;
         onLevelLoad?.Invoke();
         OnThisLevelEnter();
-        if (triggerJournalHint && GameData.difficulty == GameData.Difficulty.Easy)
-            Journal.Instance.TriggerNextHint();
+        if (triggerNextjournalHintAmount > 0 && GameData.difficulty == GameData.Difficulty.Easy)
+            for (int i = 0; i < triggerNextjournalHintAmount; i++)
+                Journal.Instance.TriggerNextHint();
         hasLoaded = false;
-        
+
         DataPersistenceManager.Instance.SaveData();
     }
 }
