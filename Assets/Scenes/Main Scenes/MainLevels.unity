@@ -10919,6 +10919,14 @@ PrefabInstance:
       propertyPath: kickOffset.y
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 4586602267804358367, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: tags.tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586602267804358367, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: 'tags.tags.Array.data[0]'
+      value: win
+      objectReference: {fileID: 0}
     - target: {fileID: 4632497686248931175, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -10959,6 +10967,14 @@ PrefabInstance:
       propertyPath: kickOffset.y
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 7169545167368832228, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: tags.tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169545167368832228, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: 'tags.tags.Array.data[0]'
+      value: win
+      objectReference: {fileID: 0}
     - target: {fileID: 7235728552056199141, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10970,6 +10986,14 @@ PrefabInstance:
     - target: {fileID: 7489733096950110416, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
       propertyPath: kickOffset.y
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489733096950110416, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: tags.tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489733096950110416, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
+      propertyPath: 'tags.tags.Array.data[0]'
+      value: win
       objectReference: {fileID: 0}
     - target: {fileID: 8078560737168783672, guid: aed2915641dbcf54e8fd5875f34ca5a6, type: 3}
       propertyPath: m_LocalScale.x
@@ -19823,12 +19847,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2599897743828914041, guid: e4089848945ac9144881850121139177, type: 3}
+      propertyPath: placeOnAlterFilter.clusterFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599897743828914041, guid: e4089848945ac9144881850121139177, type: 3}
       propertyPath: placeOnAlterFilter.alterFilters.Array.data[0].mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599897743828914041, guid: e4089848945ac9144881850121139177, type: 3}
+      propertyPath: placeOnAlterFilter.clusterFilters.Array.data[0].mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2599897743828914041, guid: e4089848945ac9144881850121139177, type: 3}
       propertyPath: placeOnAlterFilter.alterFilters.Array.data[0].tags.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599897743828914041, guid: e4089848945ac9144881850121139177, type: 3}
+      propertyPath: placeOnAlterFilter.clusterFilters.Array.data[0].tags.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2599897743828914041, guid: e4089848945ac9144881850121139177, type: 3}
       propertyPath: 'placeOnAlterFilter.alterFilters.Array.data[0].tags.Array.data[0]'
@@ -19837,6 +19873,10 @@ PrefabInstance:
     - target: {fileID: 2599897743828914041, guid: e4089848945ac9144881850121139177, type: 3}
       propertyPath: 'placeOnAlterFilter.alterFilters.Array.data[0].tags.Array.data[1]'
       value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599897743828914041, guid: e4089848945ac9144881850121139177, type: 3}
+      propertyPath: 'placeOnAlterFilter.clusterFilters.Array.data[0].tags.Array.data[0]'
+      value: win
       objectReference: {fileID: 0}
     - target: {fileID: 4218049251457964224, guid: e4089848945ac9144881850121139177, type: 3}
       propertyPath: m_IsActive
@@ -19912,7 +19952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9038812511625178601, guid: e4089848945ac9144881850121139177, type: 3}
       propertyPath: m_Size.y
-      value: 0.79323053
+      value: 0.9610076
       objectReference: {fileID: 0}
     - target: {fileID: 9038812511625178601, guid: e4089848945ac9144881850121139177, type: 3}
       propertyPath: m_Enabled
@@ -19920,7 +19960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9038812511625178601, guid: e4089848945ac9144881850121139177, type: 3}
       propertyPath: m_Offset.y
-      value: 2.7695353
+      value: 0.16881865
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -69432,7 +69472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1278502176
 Transform:
   m_ObjectHideFlags: 0
@@ -83937,7 +83977,15 @@ PrefabInstance:
       value: kick
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: placeOnAlterFilter.clusterFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: placeOnAlterFilter.alterFilters.Array.data[0].mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: placeOnAlterFilter.clusterFilters.Array.data[0].mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
@@ -83945,7 +83993,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: placeOnAlterFilter.clusterFilters.Array.data[0].tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'placeOnAlterFilter.alterFilters.Array.data[0].tags.Array.data[0]'
+      value: win
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'placeOnAlterFilter.clusterFilters.Array.data[0].tags.Array.data[0]'
       value: win
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -100092,7 +100148,15 @@ PrefabInstance:
       value: kick
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: placeOnAlterFilter.clusterFilters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: placeOnAlterFilter.alterFilters.Array.data[0].mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: placeOnAlterFilter.clusterFilters.Array.data[0].mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
@@ -100100,7 +100164,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: placeOnAlterFilter.clusterFilters.Array.data[0].tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
       propertyPath: 'placeOnAlterFilter.alterFilters.Array.data[0].tags.Array.data[0]'
+      value: win
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572212928347563005, guid: c01597d69a103504b837f305448143c9, type: 3}
+      propertyPath: 'placeOnAlterFilter.clusterFilters.Array.data[0].tags.Array.data[0]'
       value: win
       objectReference: {fileID: 0}
     m_RemovedComponents: []
