@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class TriggerJournalHint : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] int canBeTriggeredAmount;
+    [SerializeField] bool TriggerNextHint;
+    [SerializeField] Journal.HintType triggerSpecificHint;
+
+    public void TriggerHint()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (canBeTriggeredAmount == 0)
+            return;
+        canBeTriggeredAmount--;
+        if (TriggerNextHint)
+        {
+            Journal.Instance.TriggerNextHint();
+        }
+        else
+        {
+            Journal.Instance.TryTriggerHint(triggerSpecificHint);
+        }
     }
 }
