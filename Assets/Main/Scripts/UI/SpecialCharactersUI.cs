@@ -10,6 +10,7 @@ public class SpecialCharactersUI : MonoBehaviour
         KickRune,
         WallRune,
         LockRune,
+        SeeRune,
     }
     [SerializeField] Transform characterHolder;
     [SerializedDictionary("Character", "Prefab")] public SerializedDictionary<Character, GameObject> prefabs;
