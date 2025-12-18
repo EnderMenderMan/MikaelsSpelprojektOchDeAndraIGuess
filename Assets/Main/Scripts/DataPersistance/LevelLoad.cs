@@ -11,8 +11,10 @@ public class LevelLoad : MonoBehaviour
     [Tooltip("if bigger then 0 then this level will trigger progression of journal hints X amount of times. X being the this number")][SerializeField] private int triggerNextjournalHintAmount = 1;
     [SerializeField] UnityEvent onLevelLoad;
     private bool hasLoaded = false;
+    bool levelLoadedFromSave;
     public void LoadLevel()
     {
+
         if (enableGameObjectOnLoad)
             gameObject.SetActive(true);
 
@@ -44,11 +46,12 @@ public class LevelLoad : MonoBehaviour
         yield return null;
         onLevelLoad?.Invoke();
         OnThisLevelEnter();
+        DataPersistenceManager.Instance.SaveData();
+
         if (triggerNextjournalHintAmount > 0 && GameData.difficulty == GameData.Difficulty.Easy)
             for (int i = 0; i < triggerNextjournalHintAmount; i++)
                 Journal.Instance.TriggerNextHint();
         hasLoaded = false;
 
-        DataPersistenceManager.Instance.SaveData();
     }
 }
