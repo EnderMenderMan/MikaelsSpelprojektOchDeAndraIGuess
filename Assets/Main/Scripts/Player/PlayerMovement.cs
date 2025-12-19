@@ -90,22 +90,25 @@ public class PlayerMovement : MonoBehaviour
             transform.position = WorldData.Instance.GetCorrenctionToCellCenter(transform.position) + (Vector3)gridOffset;
         }
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        if (enableGridBasedMovement)
-            UpdateGridMovement();
-        else
+        if (enableGridBasedMovement == false)
             UpdateNormalMovement();
 
         UpdateSize();
+    }
+    void FixedUpdate()
+    {
+        if (enableGridBasedMovement)
+            UpdateGridMovement();
     }
     void UpdateGridMovement()
     {
         if (MovingSpeed == 0)
             return;
-        Vector2 movePoint = Vector2.MoveTowards(transform.position, gridTargetPos, speed * Time.deltaTime);
+        Vector2 movePoint = Vector2.MoveTowards(transform.position, gridTargetPos, speed * Time.fixedDeltaTime);
         transform.position = movePoint;
         if (Vector2.Distance(transform.position, gridTargetPos) < 0.01f)
         {
@@ -130,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         gridTargetPos += gridOffset;
         MovingSpeed = speed;
     }
-    
+
     public bool IsGridSpaceFree(Vector2 position, LayerMask collideWithLayers)
     {
         if (Physics2D.OverlapArea(position, transform.position, collideWithLayers) != null)
