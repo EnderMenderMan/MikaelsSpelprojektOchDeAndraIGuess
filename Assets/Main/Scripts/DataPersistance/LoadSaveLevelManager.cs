@@ -20,10 +20,9 @@ public class LoadSaveLevelManager : MonoBehaviour, IDataPersitiens
             return;
         }
 
-        int levelIndex = 0;
+        levelIndex = 0;
         if (data.loadedLevelIndex > 0)
         {
-
             levelIndex = data.loadedLevelIndex;
             FindAnyObjectByType<PlayerInteract>().transform.position = new Vector3(data.playerPosition.x, data.playerPosition.y, 0);
         }
@@ -52,7 +51,6 @@ public class LoadSaveLevelManager : MonoBehaviour, IDataPersitiens
     }
     void Start()
     {
-
         levels[levelIndex].LoadLevel();
     }
 }

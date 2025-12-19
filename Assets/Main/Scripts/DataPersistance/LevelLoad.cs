@@ -38,7 +38,7 @@ public class LevelLoad : MonoBehaviour
 
     private void OnDisable()
     {
-        if (triggerNextjournalHintAmount > 0 && GameData.difficulty == GameData.Difficulty.Normal)
+        if (triggerNextjournalHintAmount > 0 && (GameData.difficulty == GameData.Difficulty.Normal || GameData.difficulty == GameData.Difficulty.Hard))
             for (int i = 0; i < triggerNextjournalHintAmount; i++)
             {
                 Journal.Instance.TriggerNextHint();
