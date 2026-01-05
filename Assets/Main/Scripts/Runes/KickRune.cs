@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,16 +8,30 @@ public class KickRune : Rune
     [Tooltip("Filter and kick all runes that matches the filter (At least one Kick Filter returns true)")][SerializeField] private Filter[] kickFilters;
     [Tooltip("Used to select specific rune placements to run the Kick Filters on. IF EMPTY will run all runes. IF NOT EMPTY runs only selected indexes. -1 is one to the left and 2 is two to the right")][SerializeField] private int[] kickItemIndexOffsets;
 
+    [SerializeField] float kickDelay;
+    Coroutine kickAnimationCoroutine;
+
     public override void TriggerRunePlacement(int itemIndex, Alter[] alters)
     {
-        foreach (Alter filteredAlter in GetKickFilterAlters(itemIndex, alters))
-            filteredAlter.TryKickItem(false);
+        if (kickAnimationCoroutine != null)
+            StopCoroutine(kickAnimationCoroutine);
+        kickAnimationCoroutine = StartCoroutine(KickAnimation(kickDelay));
     }
     public override void OnKicked()
     {
         // foreach (Alter filteredAlter in GetKickFilterAlters(alter.clusterIndex, alter.alterCluster.alters))
         //     filteredAlter.StopKickCorutine();
         base.OnKicked();
+    }
+    public IEnumerator KickAnimation(float delay)
+    {
+        if (delay > 0.01f)
+            animator.SetTrigger("JumpTrigger");
+        yield return new WaitForSeconds(delay);
+
+        foreach (Alter filteredAlter in GetKickFilterAlters(alter.clusterIndex, alter.alterCluster.alters))
+            filteredAlter.TryKickItem(false);
+
     }
 
     List<Alter> GetKickFilterAlters(int alterIndex, Alter[] alters)

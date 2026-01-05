@@ -96,6 +96,10 @@ public class Inventory : MonoBehaviour
 
     void LateUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Tab)) // Debuging
+        {
+            ShadowForceDropRune();
+        }
         if (heldRune)
             heldRune.transform.position = transform.position;
 

@@ -32,7 +32,7 @@ public class Rune : MonoBehaviour, IInteract
     [Tooltip("Is used to determine if the rune can be placed on a alter")][SerializeField] protected AlterFilter placeOnAlterFilter;
     [NonSerialized][CanBeNull] public Alter alter;
     public bool resetPositionWhenDropedOrKicked;
-    protected Vector3 originalPosition;
+    private Vector3 originalPosition;
     private Collider2D[] colliders;
     [field: SerializeField] public Tags tags;
     public bool IsInteractDisabled { get; set; }
