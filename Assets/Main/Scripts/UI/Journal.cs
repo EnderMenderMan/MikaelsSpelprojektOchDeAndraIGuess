@@ -31,9 +31,9 @@ public class Journal : MonoBehaviour, IDataPersitiens
     {
         [NonSerialized] public int state;
         public TextMeshProUGUI textElement;
-        [TextArea(1, 3)] public string[] esay;
-        [TextArea(1, 3)] public string[] normal;
-        [TextArea(1, 3)] public string[] hard;
+        [TextArea(1, 6)] public string[] esay;
+        [TextArea(1, 6)] public string[] normal;
+        [TextArea(1, 6)] public string[] hard;
     }
     [System.Serializable]
     public struct ReplaceStringWithSpecial
@@ -50,7 +50,14 @@ public class Journal : MonoBehaviour, IDataPersitiens
     [SerializeField] ReplaceStringWithSpecial[] replaceStringsWithSpecialCharacters;
     [SerializeField] private Animator journalAnimator;
     [SerializeField] private Transform bookPart;
+    [Header("Special Characters")]
+    [SerializeField] float specialCharacterSize;
+    [SerializeField] bool specialCharactersScaleWithText;
     private Vector3 bookPartOriginalPosition;
+
+    [Header("Debug")]
+    [SerializeField] bool fillAllText;
+    [SerializeField] bool clearAllText;
 
     AudioSource audioSource;
 
@@ -145,8 +152,9 @@ public class Journal : MonoBehaviour, IDataPersitiens
             TMP_CharacterInfo targetSpawnCharacter = data.text.textInfo.characterInfo[data.index];
             float targetCharacterWidth = Mathf.Abs(targetSpawnCharacter.bottomRight.x - targetSpawnCharacter.bottomLeft.x);
             Vector3 spawnOffset = data.replace.widthOfSpecialCharacter.Length % 2 == 0 ? Vector3.zero : Vector3.right * targetCharacterWidth / 2;
+            float size = specialCharactersScaleWithText ? data.text.fontSize * 0.05f * data.size : data.size;
 
-            SpecialCharactersUI.Instance.Create(data.replace.character, data.text, data.index, spawnOffset, data.size, data.id);
+            SpecialCharactersUI.Instance.Create(data.replace.character, data.text, data.index, spawnOffset, size, data.id);
         }
     }
     void ReplaceWithSpecialCharacters(TextMeshProUGUI text, string id)
@@ -192,7 +200,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
                         index = targetSpawnIndex,
                         text = text,
                         character = replace.character,
-                        size = 1,
+                        size = specialCharacterSize,
                         id = id,
                         replace = replace,
                     });
@@ -255,6 +263,25 @@ public class Journal : MonoBehaviour, IDataPersitiens
         for (int i = 0; i < hintsArray.Length; i++)
         {
             data.journal.hintStates[i] = hintsArray[i].state;
+        }
+    }
+
+    void OnValidate()
+    {
+        if (fillAllText)
+        {
+            fillAllText = false;
+            foreach (var pair in hints)
+            {
+                pair.Value.textElement.text = pair.Value.normal[^1];
+            }
+
+        }
+        if (clearAllText)
+        {
+            clearAllText = false;
+            foreach (var pair in hints)
+                pair.Value.textElement.text = "";
         }
     }
 }

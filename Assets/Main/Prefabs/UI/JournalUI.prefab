@@ -175,7 +175,7 @@ Transform:
   m_GameObject: {fileID: 1641842034743763392}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 179.99997, y: 70, z: 0}
+  m_LocalPosition: {x: 179.99997, y: -93.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f7332ae15bf9bd091fb4100638d6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintOrder: 0000000003000000030000000b000000040000000000000003000000
+  hintOrder: 0000000003000000030000000b00000004000000000000000300000005000000
   hints:
     _serializedList:
     - Key: 0
@@ -318,44 +318,50 @@ MonoBehaviour:
         textElement: {fileID: 6300397320113926875}
         esay:
         - B_ A rune. It doesn't seem to more then activate alters
-        - 'B_ Seems it isn''t so ordinary.
+        - 'B_ A rune. It doesn''t seem to more then activate alters. Seems it isn''t
+          so ordinary.
 
-          I seem to be able to see the
-          invisible while holding it'
+          I seem to be able to see the invisible while holding
+          it'
         normal:
         - B_ A rune. It doesn't seem to more then activate alters
-        - 'B_ Seems it isn''t so ordinary.
+        - 'B_ A rune. It doesn''t seem to more then activate alters.  Seems it isn''t
+          so ordinary.
 
-          I seem to be able to see the
-          invisible while holding it'
+          I seem to be able to see the invisible while holding
+          it'
         hard: []
     - Key: 3
       Value:
         textElement: {fileID: 3007731564196852418}
         esay:
-        - K_ This rune seems to kick out B rune wen placed
-        - K_ This rune also seems to kick out other K_
-        - K_ Doesn't kick L_ and W_
+        - K_ Seems to kick out B rune when placed
+        - K_ Seems to kick out B rune when placed and also seems to kick out other
+          K_
+        - K_ Seems to kick out B rune when placed and also seems to kick out other
+          K_. K_ Doesn't kick L_ and W_
         normal:
-        - K_ This rune seems to kick out B_ rune when placed
-        - K_ This rune also seems to kick out other K_
-        - K_ Doesn't kick L_ and W_
+        - K_ Seems to kick out B rune when placed
+        - K_ Seems to kick out B rune when placed and also seems to kick out other
+          K_
+        - K_ Seems to kick out B rune when placed and also seems to kick out other
+          K_. K_ Doesn't kick L_ and W_
         hard: []
     - Key: 11
       Value:
         textElement: {fileID: 5469884840212457792}
         esay:
-        - W_ This rune allows me to pass through barriers
+        - W_ Allows me to pass through barriers
         normal:
-        - W_ This rune allows me to pass through barriers
+        - W_ Allows me to pass through barriers
         hard: []
     - Key: 4
       Value:
         textElement: {fileID: 1714181319301113941}
         esay:
-        - L_ This rune seems to lock the placed rune closest to it
+        - L_ Seems to lock the placed rune closest to it
         normal:
-        - L_ This rune seems to lock the placed rune closest to it
+        - L_ Seems to lock the placed rune closest to it
         hard: []
     - Key: 5
       Value:
@@ -383,6 +389,10 @@ MonoBehaviour:
     widthOfSpecialCharacter: '    '
   journalAnimator: {fileID: 8058333153246386341}
   bookPart: {fileID: 237648973820734506}
+  specialCharacterSize: 1
+  specialCharactersScaleWithText: 1
+  fillAllText: 0
+  clearAllText: 0
 --- !u!82 &4430527180951665210
 AudioSource:
   m_ObjectHideFlags: 0
@@ -651,7 +661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: W_ Allows me to pass through barriers
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -678,12 +688,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 18
+  m_fontSizeMax: 15
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -716,7 +726,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -6.3953133}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -756,7 +766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 101.233475, y: 4.7866087}
+  m_AnchoredPosition: {x: 101.233475, y: 7.1}
   m_SizeDelta: {x: 228.0669, y: 55.0269}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1745607529514426817
@@ -787,7 +797,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: L_ Seems to lock the placed rune closest to it
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -814,12 +824,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 18
+  m_fontSizeMax: 15
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -852,7 +862,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -5.6847286}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -958,7 +968,7 @@ Transform:
   m_GameObject: {fileID: 5694430916298053985}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -169.6, y: -50.7, z: 0}
+  m_LocalPosition: {x: -176, y: -60, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -991,7 +1001,7 @@ Transform:
   m_GameObject: {fileID: 6414749526669341981}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -169.6, y: -122.5, z: 0}
+  m_LocalPosition: {x: -169.6, y: -192.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1064,8 +1074,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 101.233475, y: 4.7866087}
-  m_SizeDelta: {x: 228.0669, y: 55.0269}
+  m_AnchoredPosition: {x: 102.03808, y: 11.9}
+  m_SizeDelta: {x: 229.6759, y: 117.2662}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4813967295077321026
 CanvasRenderer:
@@ -1095,7 +1105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: S_ An invisible rune. It also let me see other invisible things
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1122,12 +1132,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 18
+  m_fontSizeMax: 15
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -1569,7 +1579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 101.233475, y: 4.7866087}
+  m_AnchoredPosition: {x: 101.233475, y: 40.8}
   m_SizeDelta: {x: 228.0669, y: 55.0269}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8173444511632391872
@@ -1600,7 +1610,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'B_ A rune. It doesn''t seem to more then activate alters.  Seems it isn''t
+    so ordinary.
+
+    I seem to be able to see the invisible while holding it'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1627,12 +1640,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 18
+  m_fontSizeMax: 15
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -1665,7 +1678,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -34.873947, z: 0, w: 0}
+  m_margin: {x: 0, y: -34.873947, z: 0, w: -27.283009}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1736,7 +1749,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: K_ Seems to kick out B rune when placed and also seems to kick out other
+    K_. K_ Doesn't kick L_ and W_
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1763,12 +1777,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 18
+  m_fontSizeMax: 15
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -1801,7 +1815,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.17887096, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.17887096, w: -50.45202}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1907,7 +1921,7 @@ Transform:
   m_GameObject: {fileID: 8094744381311784652}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -169.6, y: -196.90001, z: 0}
+  m_LocalPosition: {x: 172, y: 30.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
