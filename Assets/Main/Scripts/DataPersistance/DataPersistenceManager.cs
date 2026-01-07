@@ -112,8 +112,9 @@ public class DataPersistenceManager : MonoBehaviour
     private List<IDataPersitiens> FindAllDataPersistenceObjects()
     {
         IEnumerable<IDataPersitiens> dataPersistenceObjcets = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<IDataPersitiens>();
-
-        return new List<IDataPersitiens>(dataPersistenceObjcets);
+        List<IDataPersitiens> dataPersistenceList = new List<IDataPersitiens>(dataPersistenceObjcets);
+        dataPersistenceList.Sort((data,data2) => data2.GetLoadPriority() - data.GetLoadPriority() );
+        return dataPersistenceList;
     }
 
     void OnValidate()

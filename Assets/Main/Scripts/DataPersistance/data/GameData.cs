@@ -11,6 +11,8 @@ public class GameData
     public struct JournalSaveData
     {
         public int[] hintStates;
+        public int currentHintIndex;
+        public bool isPlayingNotifyAnimation;
     }
 
     public (float x, float y) playerPosition;

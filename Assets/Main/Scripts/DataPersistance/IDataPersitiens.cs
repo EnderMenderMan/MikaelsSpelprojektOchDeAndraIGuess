@@ -6,4 +6,5 @@ public interface IDataPersitiens
 {
     void LoadData(GameData data);
     void SaveData(ref GameData data);
+    int GetLoadPriority() => 0;
 }

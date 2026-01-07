@@ -38,11 +38,9 @@ public class LevelLoad : MonoBehaviour
 
     private void OnDisable()
     {
-        if (triggerNextjournalHintAmount > 0 && (GameData.difficulty == GameData.Difficulty.Normal || GameData.difficulty == GameData.Difficulty.Hard))
+        if (GameData.difficulty == GameData.Difficulty.Normal || GameData.difficulty == GameData.Difficulty.Hard)
             for (int i = 0; i < triggerNextjournalHintAmount; i++)
-            {
                 Journal.Instance.TriggerNextHint();
-            }
     }
 
     IEnumerator CallOnLevelEnterNextFrame()
@@ -51,7 +49,7 @@ public class LevelLoad : MonoBehaviour
         onLevelLoad?.Invoke();
         OnThisLevelEnter();
         DataPersistenceManager.Instance.SaveData();
-        if (triggerNextjournalHintAmount > 0 && GameData.difficulty == GameData.Difficulty.Easy)
+        if (GameData.difficulty == GameData.Difficulty.Easy)
             for (int i = 0; i < triggerNextjournalHintAmount; i++)
                 Journal.Instance.TriggerNextHint();
         hasLoaded = false;

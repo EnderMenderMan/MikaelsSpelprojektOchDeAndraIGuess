@@ -108,6 +108,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
                 TrySetTextElementHint(targetHint, hintType, targetHint.hard);
                 break;
         }
+        
         hintsArray[(int)hintType].state++;
         return true;
     }
@@ -250,20 +251,37 @@ public class Journal : MonoBehaviour, IDataPersitiens
         {
             if (hintsArray[i].state == data.journal.hintStates[i])
                 continue;
-            for (int j = 0; j < data.journal.hintStates[i]; j++)
+            for (int j = 0; j < data.journal.hintStates[i]-hintsArray[i].state; j++)
                 TryTriggerHint((HintType)i);
         }
         hasStartPlayingEntrySound = false;
-        journalAnimator.SetBool(IsNotifying, false);
+        hintOrderIndex = data.journal.currentHintIndex;
+        if (data.journal.isPlayingNotifyAnimation == false)
+            journalAnimator.SetBool(IsNotifying, false);
     }
 
     public void SaveData(ref GameData data)
     {
+        data.journal.isPlayingNotifyAnimation = journalAnimator.GetBool(IsNotifying);
+        
+        if (data.isSavingGameData == false)
+            return;
+        
         data.journal.hintStates = new int[hintsArray.Length];
         for (int i = 0; i < hintsArray.Length; i++)
         {
             data.journal.hintStates[i] = hintsArray[i].state;
         }
+
+        data.journal.currentHintIndex = hintOrderIndex;
+    }
+    public int GetLoadPriority() => 10;
+
+    public void ShowAllHintsWithoutTrigger()
+    {
+        for (int i = hintOrderIndex; i < hintOrder.Length; i++)
+            if (TryTriggerHint(hintOrder[i]))
+                hintsArray[i].state--;
     }
 
     void OnValidate()
