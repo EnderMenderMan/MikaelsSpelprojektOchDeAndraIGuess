@@ -243,6 +243,9 @@ public class Journal : MonoBehaviour, IDataPersitiens
 
     public void LoadData(GameData data)
     {
+        if (GameData.difficulty == GameData.Difficulty.Cissi)
+            ShowAllHintsWithoutTrigger();
+        
         if (data.journal.hintStates == null || hintsArray == null)
             return;
 

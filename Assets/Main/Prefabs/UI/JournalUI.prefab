@@ -388,7 +388,7 @@ MonoBehaviour:
     character: 4
     widthOfSpecialCharacter: '    '
   journalAnimator: {fileID: 8058333153246386341}
-  bookPart: {fileID: 0}
+  bookPart: {fileID: 237648973820734506}
   specialCharacterSize: 1
   specialCharactersScaleWithText: 1
   fillAllText: 0
