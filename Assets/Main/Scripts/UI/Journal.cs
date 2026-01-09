@@ -30,6 +30,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
     public struct Hint
     {
         [NonSerialized] public int state;
+        [NonSerialized] public Coroutine displayTextCoroutune;
         public TextMeshProUGUI textElement;
         [TextArea(1, 6)] public string[] esay;
         [TextArea(1, 6)] public string[] normal;
@@ -94,7 +95,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
             return false;
         if (hintsArray[(int)hintType].textElement == null)
             return true;
-        
+
         Hint targetHint = hintsArray[(int)hintType];
         switch (GameData.difficulty)
         {
@@ -111,7 +112,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
                 TrySetTextElementHint(targetHint, hintType, targetHint.hard);
                 break;
         }
-        
+
         hintsArray[(int)hintType].state++;
         return true;
     }
@@ -131,7 +132,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
 
         hint.textElement.text = textArray[arrayIndex];
         SpecialCharactersUI.Instance.Destory(hintType.ToString());
-        ReplaceWithSpecialCharacters(hint.textElement, hintType.ToString());
+        ReplaceWithSpecialCharacters(hint.textElement, hint.displayTextCoroutune, hintType.ToString());
         return true;
     }
 
@@ -161,7 +162,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
             SpecialCharactersUI.Instance.Create(data.replace.character, data.text, data.index, spawnOffset, size, data.id);
         }
     }
-    void ReplaceWithSpecialCharacters(TextMeshProUGUI text, string id)
+    void ReplaceWithSpecialCharacters(TextMeshProUGUI text, Coroutine createSpecialCharactersNextFrameCoroutine, string id)
     {
         List<CreateSpecialCharactersNextFrameData> specialCreate = new List<CreateSpecialCharactersNextFrameData>();
         foreach (ReplaceStringWithSpecial replace in replaceStringsWithSpecialCharacters)
@@ -216,7 +217,9 @@ public class Journal : MonoBehaviour, IDataPersitiens
                 currentLookIndex++;
             }
         }
-        StartCoroutine(CreateSpecialCharactersNextFrame(specialCreate));
+        if (createSpecialCharactersNextFrameCoroutine != null)
+            StopCoroutine(createSpecialCharactersNextFrameCoroutine);
+        createSpecialCharactersNextFrameCoroutine = StartCoroutine(CreateSpecialCharactersNextFrame(specialCreate));
     }
 
     void Awake()
@@ -248,7 +251,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
     {
         if (GameData.difficulty == GameData.Difficulty.Cissi)
             ShowAllHintsWithoutTrigger();
-        
+
         if (data.journal.hintStates == null || hintsArray == null)
             return;
 
@@ -257,7 +260,7 @@ public class Journal : MonoBehaviour, IDataPersitiens
         {
             if (hintsArray[i].state == data.journal.hintStates[i])
                 continue;
-            for (int j = 0; j < data.journal.hintStates[i]-hintsArray[i].state; j++)
+            for (int j = 0; j < data.journal.hintStates[i] - hintsArray[i].state; j++)
                 TryTriggerHint((HintType)i);
         }
         hasStartPlayingEntrySound = false;
@@ -269,10 +272,10 @@ public class Journal : MonoBehaviour, IDataPersitiens
     public void SaveData(ref GameData data)
     {
         data.journal.isPlayingNotifyAnimation = journalAnimator.GetBool(IsNotifying);
-        
+
         if (data.isSavingGameData == false)
             return;
-        
+
         data.journal.hintStates = new int[hintsArray.Length];
         for (int i = 0; i < hintsArray.Length; i++)
         {
@@ -288,10 +291,10 @@ public class Journal : MonoBehaviour, IDataPersitiens
         int[] tempStatesArray = new int[hintsArray.Length];
         for (int i = 0; i < hintsArray.Length; i++)
             tempStatesArray[i] = hintsArray[i].state;
-        
+
         for (int i = hintOrderIndex; i < hintOrder.Length; i++)
             TryTriggerHint(hintOrder[i]);
-        
+
         for (int i = 0; i < hintsArray.Length; i++)
             hintsArray[i].state = tempStatesArray[i];
     }
