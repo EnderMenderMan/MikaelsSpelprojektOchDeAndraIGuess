@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour, IDataPersitiens
 {
     [SerializeField] GameObject startButton;
     [SerializeField] private GameObject continueButton;
+    [SerializeField] private GameObject bonusButton;
     [SerializeField] TMPro.TMP_Dropdown dropDownDifficulty;
 
     public void ResetGameData()
@@ -13,6 +14,7 @@ public class MainMenu : MonoBehaviour, IDataPersitiens
         DataPersistenceManager.Instance.NewLevelDataReset();
         startButton.SetActive(true);
         continueButton.SetActive(false);
+        bonusButton.SetActive(false);
     }
     public void DeleteData()
     {
@@ -20,6 +22,7 @@ public class MainMenu : MonoBehaviour, IDataPersitiens
         DataPersistenceManager.Instance.LoadGame();
         startButton.SetActive(true);
         continueButton.SetActive(false);
+        bonusButton.SetActive(false);
     }
     public void ChangeDifficulty(int value)
     {
@@ -39,6 +42,7 @@ public class MainMenu : MonoBehaviour, IDataPersitiens
             return;
         startButton.SetActive(false);
         continueButton.SetActive(true);
+        bonusButton.SetActive(true);
     }
 
     public void SaveData(ref GameData data)
