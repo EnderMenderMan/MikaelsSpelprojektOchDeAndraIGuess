@@ -115,12 +115,12 @@ public class PlayerMovement : MonoBehaviour
         if (Vector2.Distance(transform.position, gridTargetPos) < 0.01f)
         {
             animator.SetBool(IsMoving, false);
-            
+
             MovingSpeed = 0;
             transform.position = gridTargetPos;
             if (dirPressedOrderCountainLength == 0)
                 return;
-            
+
             SetGridMovementTargetPosition(transform.position + Utility.ScaleByWorlGridCellSize(GetLastDirPressed()));
         }
 
@@ -133,10 +133,27 @@ public class PlayerMovement : MonoBehaviour
 
         gridTargetPos = WorldData.Instance.GetCorrenctionToCellCenter(position - gridOffset);
         if (IsGridSpaceFree(gridTargetPos, gridMovementCollideWithLayers) == false)
+        {
+            if (dir.x != 0)
+            {
+                animator.SetInteger(DirState, 0);
+                PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderSideOffest;
+            }
+            else if (dir.y > 0)
+            {
+                animator.SetInteger(DirState, 1);
+                PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderTopOffest;
+            }
+            else
+            {
+                animator.SetInteger(DirState, -1);
+                PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderDownOffest;
+            }
             return;
+        }
         gridTargetPos += gridOffset;
         MovingSpeed = speed;
-        
+
         animator.SetBool(IsMoving, true);
         Vector2 moveDif = gridTargetPos - (Vector2)transform.position;
         if (Mathf.Abs(moveDif.x) > Mathf.Abs(moveDif.y))
@@ -154,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetInteger(DirState, -1);
             PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderDownOffest;
         }
-        
+
         Vector3 newRotation = new Vector3(transform.rotation.x, 0, transform.rotation.z);
         if (moveDif.x > 0)
             newRotation.y = 180;
@@ -269,14 +286,14 @@ public class PlayerMovement : MonoBehaviour
             dir = contextValue;
 
             FacingDirection = dir;
+            animator.SetBool(IsMoving, true);
 
             if (enableGridBasedMovement)
                 SetGridMovementTargetPosition(transform.position + Utility.ScaleByWorlGridCellSize(GetLastDirPressed()));
             else
             {
                 MovingSpeed = speed;
-                animator.SetBool(IsMoving, true);
-                
+
                 if (dir.x != 0)
                 {
                     animator.SetInteger(DirState, 0);
@@ -292,7 +309,7 @@ public class PlayerMovement : MonoBehaviour
                     animator.SetInteger(DirState, -1);
                     PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderDownOffest;
                 }
-                
+
                 Vector3 newRotation = new Vector3(transform.rotation.x, 0, transform.rotation.z);
                 if (dir.x > 0)
                     newRotation.y = 180;
@@ -301,7 +318,12 @@ public class PlayerMovement : MonoBehaviour
         };
         PlayerInteract.Instance.InputActions.Player.Move.canceled += context =>
         {
-            if (enableGridBasedMovement == false)
+            if (enableGridBasedMovement)
+            {
+                if (MovingSpeed == 0)
+                    animator.SetBool(IsMoving, false);
+            }
+            else
             {
                 MovingSpeed = 0;
                 animator.SetBool(IsMoving, false);
