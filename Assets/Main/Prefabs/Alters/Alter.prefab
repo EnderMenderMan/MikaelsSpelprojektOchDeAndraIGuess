@@ -100,7 +100,7 @@ MonoBehaviour:
   AlterSymbol: {fileID: 3451761999141821667}
   OnSprite: {fileID: -1089308417184592781, guid: ccd4638569d549d489cf3047f77aaf9c, type: 3}
   OffSprite: {fileID: 1722352898741781265, guid: ccd4638569d549d489cf3047f77aaf9c, type: 3}
-  kickDelay: 1
+  kickDelay: 0.2
   canKickItemsOrigninalValue: 1
   canPickupItemsOriginalValue: 1
 --- !u!1 &2966133852543933659
