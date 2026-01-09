@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7521447169702660678}
   - component: {fileID: 3659189281708056977}
   - component: {fileID: 654516394237127210}
+  - component: {fileID: 3902761470523085792}
   - component: {fileID: 4488723726563096391}
   m_Layer: 7
   m_Name: Player
@@ -182,10 +183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d530a6e1e838b8a44abeee6c6dd646c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <interactColliderDetection>k__BackingField: {fileID: 654516394237127210}
-  <interactColiderTopOffest>k__BackingField: {x: 0, y: 0.4}
-  <interactColiderDownOffest>k__BackingField: {x: 0, y: -0.6}
-  <interactColiderSideOffest>k__BackingField: {x: -0.6, y: -0.2}
+  <interactColliderDetectionClose>k__BackingField: {fileID: 654516394237127210}
+  <interactColliderDetectionFar>k__BackingField: {fileID: 3902761470523085792}
+  <interactColiderTopOffest>k__BackingField: {x: 0, y: 0.8}
+  <interactColiderDownOffest>k__BackingField: {x: 0, y: -0.8}
+  <interactColiderSideOffest>k__BackingField: {x: -0.8, y: -0.2}
   OnNoInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -206,6 +208,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <heldRune>k__BackingField: {fileID: 0}
 --- !u!58 &654516394237127210
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796683823641969113}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.3
+--- !u!58 &3902761470523085792
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

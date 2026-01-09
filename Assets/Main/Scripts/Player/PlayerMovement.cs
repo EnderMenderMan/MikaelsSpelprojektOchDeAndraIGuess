@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderDownOffest;
+        PlayerInteract.Instance.interactColliderDetectionFar.offset = PlayerInteract.Instance.interactColiderDownOffest;
 
         if (enableGridBasedMovement && WorldData.Instance == null)
             enableGridBasedMovement = false;
@@ -137,18 +137,23 @@ public class PlayerMovement : MonoBehaviour
             if (dir.x != 0)
             {
                 animator.SetInteger(DirState, 0);
-                PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderSideOffest;
+                PlayerInteract.Instance.interactColliderDetectionFar.offset = PlayerInteract.Instance.interactColiderSideOffest;
             }
             else if (dir.y > 0)
             {
                 animator.SetInteger(DirState, 1);
-                PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderTopOffest;
+                PlayerInteract.Instance.interactColliderDetectionFar.offset = PlayerInteract.Instance.interactColiderTopOffest;
             }
             else
             {
                 animator.SetInteger(DirState, -1);
-                PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderDownOffest;
+                PlayerInteract.Instance.interactColliderDetectionFar.offset = PlayerInteract.Instance.interactColiderDownOffest;
             }
+            Vector3 newRotationTemp = new Vector3(transform.rotation.x, 0, transform.rotation.z);
+            if (dir.x > 0)
+                newRotationTemp.y = 180;
+            transform.eulerAngles = newRotationTemp;
+
             return;
         }
         gridTargetPos += gridOffset;
@@ -159,17 +164,17 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(moveDif.x) > Mathf.Abs(moveDif.y))
         {
             animator.SetInteger(DirState, 0);
-            PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderSideOffest;
+            PlayerInteract.Instance.interactColliderDetectionFar.offset = PlayerInteract.Instance.interactColiderSideOffest;
         }
         else if (moveDif.y > 0)
         {
             animator.SetInteger(DirState, 1);
-            PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderTopOffest;
+            PlayerInteract.Instance.interactColliderDetectionFar.offset = PlayerInteract.Instance.interactColiderTopOffest;
         }
         else
         {
             animator.SetInteger(DirState, -1);
-            PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderDownOffest;
+            PlayerInteract.Instance.interactColliderDetectionFar.offset = PlayerInteract.Instance.interactColiderDownOffest;
         }
 
         Vector3 newRotation = new Vector3(transform.rotation.x, 0, transform.rotation.z);
@@ -297,17 +302,17 @@ public class PlayerMovement : MonoBehaviour
                 if (dir.x != 0)
                 {
                     animator.SetInteger(DirState, 0);
-                    PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderSideOffest;
+                    PlayerInteract.Instance.interactColliderDetectionFar.offset = PlayerInteract.Instance.interactColiderSideOffest;
                 }
                 else if (dir.y > 0)
                 {
                     animator.SetInteger(DirState, 1);
-                    PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderTopOffest;
+                    PlayerInteract.Instance.interactColliderDetectionFar.offset = PlayerInteract.Instance.interactColiderTopOffest;
                 }
                 else
                 {
                     animator.SetInteger(DirState, -1);
-                    PlayerInteract.Instance.interactColliderDetection.offset = PlayerInteract.Instance.interactColiderDownOffest;
+                    PlayerInteract.Instance.interactColliderDetectionFar.offset = PlayerInteract.Instance.interactColiderDownOffest;
                 }
 
                 Vector3 newRotation = new Vector3(transform.rotation.x, 0, transform.rotation.z);

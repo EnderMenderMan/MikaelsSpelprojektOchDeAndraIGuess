@@ -32,8 +32,9 @@ public class KickRune : Rune
             animator.SetTrigger(JumpTrigger);
         yield return new WaitForSeconds(delay);
 
-        foreach (Alter filteredAlter in GetKickFilterAlters(alter.clusterIndex, alter.alterCluster.alters))
-            filteredAlter.TryKickItem(false);
+        if (alter != null)
+            foreach (Alter filteredAlter in GetKickFilterAlters(alter.clusterIndex, alter.alterCluster.alters))
+                filteredAlter.TryKickItem(false);
 
         countToAlterClusterComplete = true;
     }
