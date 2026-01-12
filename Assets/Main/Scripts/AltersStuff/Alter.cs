@@ -114,7 +114,7 @@ public class Alter : MonoBehaviour, IInteract
         equippedRune.OnKicked();
         if (Inventory.PlayerInventory.heldRune == null || Inventory.PlayerInventory.heldRune.gameObject != equippedRune.gameObject) // rune may have been pickup and if so dont activate it
             equippedRune.IsInteractDisabled = false;
-        equippedRune.transform.position = transform.position + kickOffset;
+        equippedRune.transform.position = transform.position + kickOffset + new Vector3(UnityEngine.Random.Range(-0.1f, 0.1f), UnityEngine.Random.Range(-0.1f, 0.1f), 0);
         equippedRune.alter = null;
         equippedRune.AfterKicked();
         equippedRune = null;
@@ -189,7 +189,7 @@ public class Alter : MonoBehaviour, IInteract
             Rune heldRune = Inventory.PlayerInventory.heldRune;
             Inventory.PlayerInventory.DropRune();
             if (heldRune.resetPositionWhenDropedOrKicked == false)
-                heldRune.transform.position = transform.position + kickOffset;
+                heldRune.transform.position = transform.position + kickOffset + new Vector3(UnityEngine.Random.Range(-0.1f, 0.1f), UnityEngine.Random.Range(-0.1f, 0.1f), 0);
             return;
         }
 
