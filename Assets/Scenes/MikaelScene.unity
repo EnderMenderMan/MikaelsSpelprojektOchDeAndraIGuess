@@ -12788,7 +12788,7 @@ PrefabInstance:
       objectReference: {fileID: 1122158694}
     - target: {fileID: 8865646075807917799, guid: 00e8d4d1bc3288a4ca5b7c2f5d0e7292, type: 3}
       propertyPath: enableGridBasedMovement
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15233,7 +15233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1122692804
 Transform:
   m_ObjectHideFlags: 0
@@ -19279,7 +19279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1434338563
 Transform:
   m_ObjectHideFlags: 0
@@ -20217,13 +20217,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: RuneSeeInvis
       objectReference: {fileID: 0}
+    - target: {fileID: 3752684582414722849, guid: 723117ad1a9f13840b0df65b0bcefd74, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752684582414722849, guid: 723117ad1a9f13840b0df65b0bcefd74, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1627725127
+      objectReference: {fileID: 0}
     - target: {fileID: 8034950262366957445, guid: 723117ad1a9f13840b0df65b0bcefd74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.2846913
+      value: 2.43
       objectReference: {fileID: 0}
     - target: {fileID: 8034950262366957445, guid: 723117ad1a9f13840b0df65b0bcefd74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4007846
+      value: 1.968
       objectReference: {fileID: 0}
     - target: {fileID: 8034950262366957445, guid: 723117ad1a9f13840b0df65b0bcefd74, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21587,8 +21595,8 @@ Camera:
   m_GameObject: {fileID: 1906906346}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.1445799, g: 0.5377358, b: 0.16205598, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -23310,15 +23318,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3411305467918558143, guid: e0b74967724a0d7de922face126a6ca9, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4835117741621564319, guid: e0b74967724a0d7de922face126a6ca9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.12
+      value: 3.429
       objectReference: {fileID: 0}
     - target: {fileID: 4835117741621564319, guid: e0b74967724a0d7de922face126a6ca9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.57
+      value: 2.825
       objectReference: {fileID: 0}
     - target: {fileID: 4835117741621564319, guid: e0b74967724a0d7de922face126a6ca9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23352,6 +23360,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4889827570519458907, guid: e0b74967724a0d7de922face126a6ca9, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889827570519458907, guid: e0b74967724a0d7de922face126a6ca9, type: 3}
+      propertyPath: m_SortingOrder
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889827570519458907, guid: e0b74967724a0d7de922face126a6ca9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -388622809
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889827570519458907, guid: e0b74967724a0d7de922face126a6ca9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6b055940f0c2b4c6f83bc4321c65c031, type: 2}
     - target: {fileID: 8406508089808280984, guid: e0b74967724a0d7de922face126a6ca9, type: 3}
       propertyPath: m_Name
       value: Grow Rune

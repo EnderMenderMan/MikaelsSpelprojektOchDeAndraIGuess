@@ -360,6 +360,14 @@ PrefabInstance:
       propertyPath: InitialModule.startLifetime.scalar
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2039289076598021791, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2039289076598021791, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -492638299
+      objectReference: {fileID: 0}
     - target: {fileID: 6009367572822368787, guid: a645d3f2896f970b6bfcc2cc45ba935c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.081

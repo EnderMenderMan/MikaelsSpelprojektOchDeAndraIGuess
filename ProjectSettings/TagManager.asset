@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: StencilShapes
+    uniqueID: 3802328997
+    locked: 0
   - name: AffectedByLighting
     uniqueID: 3906344487
     locked: 0
