@@ -41,6 +41,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Scenes/Bonus_2.unity
     guid: 2e28748b1f7eba943985b21e17c59c4e
+  - enabled: 1
+    path: Assets/Scenes/Main Scenes/Intro_cutscene.unity
+    guid: 08de92c10259f9945bcf1f58b3db085f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
