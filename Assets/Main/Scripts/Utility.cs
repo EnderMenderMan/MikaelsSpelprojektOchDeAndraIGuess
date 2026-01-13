@@ -42,15 +42,23 @@ public static class Utility
         float endTime = keys[^1].time;
         float duration = endTime - startTime;
 
-        for (int i = 0; i < keys.Length; i++) {
+        for (int i = 0; i < keys.Length; i++)
+        {
             keys[i].time = endTime - (keys[i].time - startTime);
-            
+
             float oldIn = keys[i].inTangent;
             keys[i].inTangent = -keys[i].outTangent;
             keys[i].outTangent = -oldIn;
         }
 
         return new AnimationCurve(keys);
+    }
+    public static void CopyTransform(Transform target, Transform from)
+    {
+        target.position = from.position;
+        target.rotation = from.rotation;
+        // target.lossyScale.Set(from.lossyScale.x, from.lossyScale.y, from.lossyScale.z);
+        target.localScale = from.localScale;
     }
 
 

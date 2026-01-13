@@ -2,8 +2,21 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] Transform runePickupTransformUp;
+    [SerializeField] Transform runePickupTransformDown;
+    [SerializeField] Transform runePickupTransformLeft;
+    Transform currenctPickupTransform;
+    [SerializeField] Transform ogRuneTransform;
+
     public static Inventory PlayerInventory { get; private set; }
     [field: SerializeField] public Rune heldRune { get; private set; }
+
+
+    public void PickupUp() => currenctPickupTransform = runePickupTransformUp;
+    public void PickupDown() => currenctPickupTransform = runePickupTransformDown;
+    public void PickupSide() => currenctPickupTransform = runePickupTransformLeft;
+
+
     public bool TryPickUpRune(Rune rune)
     {
         if (heldRune != null)
@@ -48,7 +61,7 @@ public class Inventory : MonoBehaviour
             return;
         heldRune = rune;
         heldRune.IsInteractDisabled = true;
-
+        Utility.CopyTransform(ogRuneTransform, rune.transform);
     }
 
     public bool DropRune()
@@ -79,12 +92,16 @@ public class Inventory : MonoBehaviour
     {
         if (heldRune == null)
             return;
+
+        Utility.CopyTransform(heldRune.transform, ogRuneTransform);
         heldRune.IsInteractDisabled = false;
         heldRune = null;
     }
 
     void Awake()
     {
+        currenctPickupTransform = runePickupTransformUp;
+
         if (GetComponent<PlayerInteract>() != null)
             PlayerInventory = this;
     }
@@ -101,7 +118,11 @@ public class Inventory : MonoBehaviour
             ShadowForceDropRune();
         }
         if (heldRune)
-            heldRune.transform.position = transform.position;
+        {
+
+            Utility.CopyTransform(heldRune.transform, currenctPickupTransform);
+            // heldRune.transform.position = runePickupTransformUp.position;
+        }
 
     }
 

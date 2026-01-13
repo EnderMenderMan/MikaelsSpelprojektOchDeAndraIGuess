@@ -276,6 +276,22 @@ public class PlayerMovement : MonoBehaviour
         stopGrow = false;
     }
 
+    void LateUpdate()
+    {
+        switch (animator.GetInteger(DirState))
+        {
+            case 0:
+                Inventory.PlayerInventory.PickupSide();
+                break;
+            case 1:
+                Inventory.PlayerInventory.PickupUp();
+                break;
+            case -1:
+                Inventory.PlayerInventory.PickupDown();
+                break;
+        }
+    }
+
     private void OnEnable()
     {
         Instance = this;
