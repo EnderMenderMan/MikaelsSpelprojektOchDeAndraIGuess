@@ -36,9 +36,10 @@ public class SoundManager : MonoBehaviour
     {
         for (int i = 0; i < audioLifeTimes.Count; i++)
         {
-            if (audioLifeTimes[i].timer <= 0 && audioLifeTimes[i].source.loop == false)
+            if (audioLifeTimes[i].source == null || audioLifeTimes[i].timer <= 0 && audioLifeTimes[i].source.loop == false)
             {
-                Destroy(audioLifeTimes[i].source);
+                if (audioLifeTimes[i].source != null)
+                    Destroy(audioLifeTimes[i].source);
                 audioLifeTimes.RemoveAt(i);
                 i--;
                 continue;

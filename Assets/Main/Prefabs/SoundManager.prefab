@@ -122,8 +122,8 @@ MonoBehaviour:
   - name: Rune Ambiance
     soundType: 3
     audioResource:
-    - {fileID: 8300000, guid: 724c13d6283d452b0918d5b27ea46ea2, type: 3}
-    - {fileID: 8300000, guid: 063a519c301b9cddbaaff5a15fa36f20, type: 3}
+    - {fileID: 8300000, guid: b87b62066e7c5655d99a9dd209922d67, type: 3}
+    - {fileID: 8300000, guid: e225d132c5bfc3857802d48b730043f5, type: 3}
     - {fileID: 8300000, guid: 8679c9661137d46f19146231250f4b0a, type: 3}
 --- !u!82 &7598795156039162681
 AudioSource:
