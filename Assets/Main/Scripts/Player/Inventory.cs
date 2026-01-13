@@ -94,6 +94,7 @@ public class Inventory : MonoBehaviour
             return;
 
         Utility.CopyTransform(heldRune.transform, ogRuneTransform);
+        heldRune.transform.position = transform.position;
         heldRune.IsInteractDisabled = false;
         heldRune = null;
     }
