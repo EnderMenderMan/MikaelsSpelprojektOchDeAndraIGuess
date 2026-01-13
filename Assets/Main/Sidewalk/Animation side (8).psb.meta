@@ -50,7 +50,7 @@ ScriptedImporter:
     flipbookColumns: 0
     ignorePngGamma: 0
     cookieMode: 0
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -119,13 +119,13 @@ ScriptedImporter:
     spritePosition: {x: 617, y: 68}
   - name: Layer 50
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.51867664, y: 0.47014925}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 1897
+      x: 1920
       y: 1759
       width: 937
       height: 1742
@@ -141,8 +141,8 @@ ScriptedImporter:
     spritePosition: {x: 617, y: 142}
   - name: Layer 49
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5005336, y: 0.49002847}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -163,8 +163,8 @@ ScriptedImporter:
     spritePosition: {x: 612, y: 181}
   - name: Layer 46
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.51867664, y: 0.46078992}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -185,8 +185,8 @@ ScriptedImporter:
     spritePosition: {x: 601, y: 83}
   - name: Layer 43
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.53681964, y: 0.47572252}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -207,8 +207,8 @@ ScriptedImporter:
     spritePosition: {x: 618, y: 123}
   - name: Layer 38
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.51760936, y: 0.47586206}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -229,13 +229,13 @@ ScriptedImporter:
     spritePosition: {x: 605, y: 209}
   - name: Layer 37
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.50907147, y: 0.46552706}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 952
+      x: 961
       y: 1767
       width: 937
       height: 1755
