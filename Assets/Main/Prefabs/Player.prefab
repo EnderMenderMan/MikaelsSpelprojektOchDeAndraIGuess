@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce73ff5a7ddfa04ca8e7a507b44bd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   enableGridBasedMovement: 0
   gridOffset: {x: 0, y: 0}
   gridMovementCollideWithLayers:
