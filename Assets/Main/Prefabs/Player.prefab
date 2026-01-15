@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce73ff5a7ddfa04ca8e7a507b44bd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 3.5
   enableGridBasedMovement: 0
   gridOffset: {x: 0, y: 0}
   gridMovementCollideWithLayers:
@@ -385,6 +385,8 @@ MonoBehaviour:
   runePickupTransformDown: {fileID: 44114234099746070}
   runePickupTransformLeft: {fileID: 6120781099153006680}
   ogRuneTransform: {fileID: 6432884465139055419}
+  ogLayerOrder: 
+  heldRuneRenderers: []
   <heldRune>k__BackingField: {fileID: 0}
 --- !u!58 &654516394237127210
 CircleCollider2D:
